@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>자녀안전지킴이</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	
+	<!-- font -->
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=block" rel="stylesheet" />
+	
+	<!-- css -->
+	<link rel="stylesheet" href="../../css/reset.css" />
+	<link rel="stylesheet" href="../../css/safetyfam_app.css" />
+	<!-- <link rel="stylesheet" href="../../css/Global.css" /> -->
+	<link rel="stylesheet" href="../../css/slick.css" />
+</head>
+<body>
+
+<div class="wrap">
+
+	<div class="header_wrap">
+		<div class="temp">
+			<div class="util">
+				<!-- <button type="button"><span><img src="../../images/common/ico_back.png" alt="이전"></span></button> -->
+				<button type="button"><span><img src="../../images/common/ico_home.png" alt="홈"></span></button>
+			</div>
+			<h1><strong>자녀안전지킴이</strong></h1>
+			<div class="tools">
+				<button type="button"><span><img src="../../images/common/ico_noti.png" alt="알림"></span></button>
+			</div>
+		</div>
+		<!-- // temp 삭제 -->
+	</div>
+	<!-- // header_wrap -->
+
+	<div class="container_wrap">
+
+		<section class="container">
+
+			<div class="content_wrap">
+
+				<div class="content">
+
+					<div><img src="../../images/temp/map.png" alt=""></div>
+					
+				</div>
+
+				<!-- <div class="content_btm">
+					<div class="btm_btn">
+						<div><button type="button" class="btn_next"><span>더보기</span></button></div>
+					</div>
+				</div> -->
+
+			</div><!-- // content_wrap -->
+			
+		</section><!-- // container -->
+		
+	</div><!-- // container_wrap -->
+
+
+	<!-- <div class="footer_wrap">
+		<div class="btnGroup">
+			<div>
+				<button type="button" class="btn line" disabled=""><span>취소</span></button>
+			</div>
+			<div>
+				<button type="button" class="btn fill"><span>확인</span></button>
+			</div>
+		</div>
+	</div> -->
+	<!-- // footer_wrap (하단 고정 영역) -->
+
+</div><!-- // wrap -->
+
+
+
+<div class="layer bottom">
+
+	<div class="home_fam_layer" style="position:absolute; bottom:0; left:0; right:0; width:100%; max-width:720px; max-height:90vh; margin:0 auto; overflow-y:auto;">
+		<div class="layer_triger"><button type="button" class="btn_triger"><span>드래그버튼</span></button></div>
+
+		
+
+		<div class="home_fam_loc_list">
+			<ul class="list">
+				<li class="item">
+					<div class="thum">
+						<span class="img"><img src="../../images/temp/img_profile_01.png" alt="이미지"></span>
+					</div>
+					<div class="txt_wrap">
+						<strong class="name">나나</strong>
+						<p class="location">지금 위치를 확인할 수 없어요.</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- // home_fam_loc_list -->
+
+		<div class="home_child_util">
+			<button type="button" class="btn_sos" style="display:none">
+				<span class="ico"><img src="../../images/home/ico_home_sos.png" alt="긴급 SOS 아이콘"></span>
+				<span class="txt">긴급 SOS</span>
+			</button>
+			<button type="button" class="btn_call">
+				<span class="ico"><img src="../../images/home/ico_home_call.png" alt="전화하기 아이콘"></span>
+				<span class="txt">보호자에게 전화하기</span>
+			</button>
+		</div>
+		<!-- // home_child_util -->
+
+
+		<div class="home_footer">
+			<div>
+				<span>서비스 제공사 : (주)아톤</span>
+				<span>개인정보처리방침</span>
+			</div>
+			<div>
+				<span>서비스 가입/ 해지문의 </span>
+				<span>080-869-4273(무료)<br />(평일) 09:00~18:00 (점심시간 12:00~13:00)</span>
+			
+				<ul>
+					<li><p>본 서비스는 가입 즉시 서비스가 개시되는 상품으로 청약철회가 불가능합니다. (전자상거래 등에서의 소비자보호에 관한 법률 제17조 2항 5호에 따라 디지털 콘텐츠의 제공이 개시된 경우 청약철회를 제공하지 않습니다.)</p></li>
+					<li><p>서비스를 이용할 때 가입한 요금제에 따라 데이터 요금이 발생할 수 있습니다.</p></li>
+				</ul>
+			</div>
+		</div>
+		<!-- // home_footer -->
+
+	</div>
+</div>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../../js/slick.js"></script>
+<script src="../../js/temp.js"></script>
+
+
+<script>
+
+$(document).ready(function(){
+	/* gallery main */
+	function guideSlick(){
+		$('.bnr_slick').slick({
+			dots: true,
+			dotsClass: "bnr_slide_dot",
+			infinite: true,
+			arrows: false,
+			// centerMode: true,
+			// centerPadding : '18px'
+		});
+	}
+	guideSlick();
+})
+
+/* 공지사항, 자주 묻는 질문 */
+let noticeWrap = document.querySelector(".notice_arcodian_wrap")
+if(noticeWrap) {
+	let listItems = document.querySelectorAll(".list .item");
+	listItems.forEach(function(item){
+		item.addEventListener("click", function(){
+			item.classList.toggle("active");
+		})
+	})
+}
+/* // 공지사항, 자주 묻는 질문 */
+
+</script>
+
+</body>
+</html>

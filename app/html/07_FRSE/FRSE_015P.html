@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>자녀안전지킴이</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	
+	<!-- font -->
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=block" rel="stylesheet" /> -->
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..700&display=swap" />
+	
+	<!-- css -->
+	<link rel="stylesheet" href="../../css/reset.css" />
+	<link rel="stylesheet" href="../../css/safetyfam_app.css" />
+	<!-- <link rel="stylesheet" href="../../css/Global.css" /> -->
+	<!-- <link rel="stylesheet" href="../../css/slick.css" /> -->
+	 
+<style>
+/* 프리미엄 구독 페이지 관련 추가 */
+.service_info {margin-top:24px;}
+.service_info .txt_wrap {display:flex; flex-direction:column; align-items:center; gap:10px;}
+.service_info .txt_wrap strong.tit {display:inline-block; color:#27AAFF; font-size:16px; line-height:24px; font-weight:700;}
+.service_info .txt_wrap p.txt {color:#9F9F9F; font-size:12px; line-height:16px; font-weight:400;}
+
+.service_guide {margin-top:12px; text-align:center;}
+.service_guide div {display:inline-block; padding:0 40px; text-align:left;}
+.service_guide ul li {position:relative; padding-left:1.3em; color:#000; font-size:12px; line-height:17px; font-weight:400;}
+.service_guide ul li::before {content:"·"; display:block; position:absolute; top:0; left:0; width:12px; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold; text-align:center;}
+.service_guide em {display:block; margin-top:6px; color:#27AAFF; font-size:12px; line-height:17px; font-weight:400; text-align:right;}
+
+.btn_group button.btn_subscribe {height:70px !important; background-color:#3B3B3B; border-radius:12px;}
+.btn_group button.btn_subscribe strong {display:block; color:#fff; font-size:16px; line-height:24px; font-weight:500;}
+.btn_group button.btn_subscribe span {display:block; color:#fff; font-size:12px !important; line-height:17px; font-weight:400;}
+
+.btn_group button.btn_cancel {border-radius:11px; background-color:#DEDEDE;}
+.btn_group button.btn_cancel span {color:#000; font-size:16px; line-height:24px; font-weight:500;}
+
+.content_btm div.btm_btn  button.btn_restore {background-color:transparent;}
+.content_btm div.btm_btn  button.btn_restore span {display:inline-block; color:#000; font-size:16px; line-height:24px; font-weight:400; border-bottom:1px solid #000; letter-spacing:-0.04em;}
+
+/* // 프리미엄 구독 페이지 관련 추가 */
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+
+	<div class="container_wrap">
+
+		<section class="container">
+
+			<div class="content_wrap divide">
+
+				<div class="content_top">
+					<div class="logo" style="margin-top:36px; text-align:center;">
+						<span style="display:inline-flex; justify-content:center; align-items:center; width:160px; height:auto;">
+							<img src="../../images/common/img_appicon.png" alt="로고" />
+						</span>
+					</div>
+					<div class="service_info">
+						<div class="txt_wrap">
+							<strong class="tit">Child Safety Guardian</strong>
+							<p class="txt">Protect your child's safety<br />
+								with our premium service.</p>
+						</div>
+					</div>
+					<div class="service_guide">
+						<div>
+							<ul>
+								<li>Track your child's exact location and movement routes</li>
+								<li>Get alerts when your child leaves a designated safe zone</li>
+								<li>Receive notifications if the phone is unused or detects impact</li>
+								<li>Get notified when harmful messages are received</li>
+								<li>SOS alerts in case of emergencies</li>
+							</ul>
+							<em>*Charges apply automatically.</em>
+						</div>
+					</div>
+					<!-- // service_guide -->
+					
+				</div>
+				<!-- // content_top -->
+
+
+				<div class="content_btm">
+					<div class="btm_btn">
+						<div class="btn_group">
+							<button type="button" class="btn_subscribe">
+								<strong>Continue</strong>
+								<span>7-day free trial available (then ₩0000/month)</span>
+							</button>
+							<button type="button" class="btn_cancel" style="margin-top:6px;"><span>Skip</span></button>
+						</div>
+
+						<button type="button" class="btn_restore"><span>Restore Purchase</span></button>
+					</div>
+					<!-- // btm_btn -->
+				</div>
+				<!-- // content_btm -->
+
+			</div><!-- // content_wrap -->
+			
+		</section><!-- // container -->
+		
+	</div><!-- // container_wrap -->
+
+
+	<!-- <div class="footer_wrap">
+		<div class="btnGroup">
+			<div>
+				<button type="button" class="btn line" disabled=""><span>취소</span></button>
+			</div>
+			<div>
+				<button type="button" class="btn fill"><span>확인</span></button>
+			</div>
+		</div>
+	</div> -->
+	<!-- // footer_wrap (하단 고정 영역) -->
+
+</div><!-- // wrap -->
+
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+<!-- <script src="../../js/slick.js"></script> -->
+<script src="../../js/temp.js"></script>
+
+</body>
+</html>

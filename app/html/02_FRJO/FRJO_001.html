@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>자녀안전지킴이</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	
+	<!-- font -->
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=block" rel="stylesheet" />
+	
+	<!-- css -->
+	<link rel="stylesheet" href="../../css/reset.css" />
+	<link rel="stylesheet" href="../../css/safetyfam_app.css" />
+	<!-- <link rel="stylesheet" href="../../css/Global.css" /> -->
+	<!-- <link rel="stylesheet" href="../../css/slick.css" /> -->
+</head>
+<body>
+
+<div class="wrap">
+
+
+	<div class="container_wrap">
+
+		<section class="container">
+
+			<div class="content_wrap divide">
+
+				<div class="content_center">
+					<div class="logo">
+						<span style="display:inline-flex; justify-content:center; align-items:center; width:160px; height:auto;">
+							<img src="../../images/common/img_appicon.png" alt="로고" />
+						</span>
+					</div>
+				</div>
+				<div class="content_btm">
+					<div class="login_temp">
+						<div class="txt_wrap">
+							<strong class="tit">자녀안전지킴이</strong>
+							<p class="txt">자녀의 위치정보를 기반으로 안심존 이탈,<br />
+								긴급 SOS 알림, 언어/채팅 모니터링 등<br />
+								종합적인 자녀 안전 관리 서비스</p>
+						</div>
+						<div class="btn_group">
+							<button type="button" class="btn_login"><span>로그인</span></button>
+							<button type="button" class="btn_join"><span>회원가입</span></button>
+						</div>
+					</div>
+				</div>
+
+			</div><!-- // content_wrap -->
+			
+		</section><!-- // container -->
+		
+	</div><!-- // container_wrap -->
+
+
+	<!-- <div class="footer_wrap">
+		<div class="btnGroup">
+			<div>
+				<button type="button" class="btn line" disabled=""><span>취소</span></button>
+			</div>
+			<div>
+				<button type="button" class="btn fill"><span>확인</span></button>
+			</div>
+		</div>
+	</div> -->
+	<!-- // footer_wrap (하단 고정 영역) -->
+
+</div><!-- // wrap -->
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- <script src="../../js/slick.js"></script> -->
+<script src="../../js/temp.js"></script>
+
+
+<script>
+
+/* 공지사항, 자주 묻는 질문 */
+let noticeWrap = document.querySelector(".notice_arcodian_wrap")
+if(noticeWrap) {
+	let listItems = document.querySelectorAll(".list .item");
+	listItems.forEach(function(item){
+		item.addEventListener("click", function(){
+			item.classList.toggle("active");
+		})
+	})
+}
+/* // 공지사항, 자주 묻는 질문 */
+
+</script>
+
+</body>
+</html>
