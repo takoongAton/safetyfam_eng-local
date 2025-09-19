@@ -253,19 +253,48 @@ div.chat_guard_wrap .list_count {padding:0 18px 12px; color:#9F9F9F; font-size:1
 .login_temp .btn_group button.btn_login span {color:#fff;}
 .login_temp .btn_group button.btn_join {background-color:#DEDEDE; border-radius:11px;}
 .login_temp .btn_group button.btn_join span {color:#000;}
+
+/* width google, apple */
+.login_temp .btn_group button.btn_other {display:flex; justify-content:center; align-items:center; gap:4px; height:50px; border:1px solid #9F9F9F; border-radius:12px; background-color:#fff;}
+.login_temp .btn_group button.btn_other span {display:inline-block;}
+.login_temp .btn_group button.btn_other span.ico {width:24px; height:24px;}
+.login_temp .btn_group button.btn_other span.txt {color:#000; font-size:14px; line-height:20px; font-weight:500; font-family:'Noto Sans KR';}
+/* // width google, apple */
+
+.divide_bar {display:flex; align-items:center; gap:4px; margin:24px 0;}
+.divide_bar::before,
+.divide_bar::after {content:""; display:block; width:100%; height:1px; background-color:#9f9f9f;}
+.divide_bar span {color:#9F9F9F; font-size:12px; line-height:1.5em; font-weight:500;}
 /* // 회원가입/로그인 안내 */
+
+
 
 
 /* 페이지 하단 고정 버튼 */
 .content_btm div.btm_btn {display:flex; flex-direction:column; justify-content:space-between; gap:4px; width:100%; padding:0 18px 24px;}
-.content_btm div.btm_btn div  {width:100%;}
+.content_btm div.btm_btn div {width:100%;}
+.content_btm div.btm_btn div.btn_group {display:flex; flex-direction:column; gap:6px;}
 .content_btm div.btm_btn button {box-sizing:content-box; width:100%; height:48px; background-color:#333; border-radius:12px;}
 .content_btm div.btm_btn button span {color:#fff; font-size:16px; line-height:24px; font-weight:500;}
 .content_btm div.btm_btn button.btn_cancel {background-color:#DEDEDE;}
 .content_btm div.btm_btn button.btn_cancel span {color:#000;}
 .content_btm div.btm_btn button.btn_next {background-color:#333;}
 .content_btm div.btm_btn button.btn_next {color:#fff;}
+.content_btm div.btm_btn button.btn_next strong,
+.content_btm div.btm_btn button.btn_next span {color:#fff; line-height:1.5em;}
 .content_btm div.btm_btn button.iOS {padding-bottom:17px;}
+
+
+.content_btm div.btm_btn button.btn_subscribe {height:70px !important; background-color:#3B3B3B; border-radius:12px;}
+.content_btm div.btm_btn button.btn_subscribe strong,
+.content_btm div.btm_btn button.btn_subscribe span {display:block; color:#fff; line-height:1.5em;}
+.content_btm div.btm_btn button.btn_subscribe strong {font-size:16px; font-weight:500;}
+.content_btm div.btm_btn button.btn_subscribe span {font-size:12px; font-weight:400;}
+
+/* Restore Purchase */
+.content_btm div.btm_btn button.btn_restore {background-color:transparent;}
+.content_btm div.btm_btn button.btn_restore span {display:inline-block; color:#000; font-size:16px; line-height:24px; font-weight:400; border-bottom:1px solid #000; letter-spacing:-0.04em;}
+/* // Restore Purchase */
 
 
 
@@ -351,7 +380,7 @@ div.chat_guard_wrap .list_count {padding:0 18px 12px; color:#9F9F9F; font-size:1
 /* // home notice */
 
 /* home footer */
-.home_footer {background-color:#F5F5F5; color:#9F9F9F; font-size:10px; text-align:left;}
+/* .home_footer {background-color:#F5F5F5; color:#9F9F9F; font-size:10px; text-align:left;}
 .home_footer div:first-of-type {padding:8px 18px; border-bottom:1px solid #ccc;}
 .home_footer div:first-of-type span {display:inline-block; position:relative;}
 .home_footer div:first-of-type span + span {margin-left:6px; padding-left:6px;}
@@ -360,7 +389,22 @@ div.chat_guard_wrap .list_count {padding:0 18px 12px; color:#9F9F9F; font-size:1
 .home_footer div + div span {display:block; line-height:16px;}
 .home_footer ul {margin-top:8px;}
 .home_footer ul li p {position:relative; padding-left:0.75em; color:#9F9F9F; font-size:10px; line-height:16px;}
-.home_footer ul li p::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold;}
+.home_footer ul li p::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold;} */
+
+.home_footer {background-color:#F5F5F5; color:#9F9F9F; font-size:10px; text-align:left; letter-spacing:-0.025em;}
+.home_footer .footer_service_provider {padding:8px 18px; border-bottom:1px solid #ccc;}
+.home_footer .footer_service_provider span {font-weight:500;}
+.home_footer .footer_service_provider span + span {margin-left:6px; padding-left:6px;}
+.home_footer .footer_service_provider span + span::before {content:""; display:block; position:absolute; top:50%; left:0; width:1px; height:10px; background-color:#ccc; transform:translateY(-50%);}
+
+.home_footer .home_footer_info_wrap {display:flex; flex-direction:column; gap:8px; width:100%; padding:16px 18px;}
+.home_footer .home_footer_info_wrap .footer_customer {color:#9F9F9F; font-size:10px; line-height:16px;}
+.home_footer .home_footer_info_wrap .footer_customer span {display:block; line-height:16px;}
+.home_footer .home_footer_info_wrap .footer_privacy span {display:inline-block; position:relative; font-weight:500;}
+.home_footer .home_footer_info_wrap .footer_privacy span + span {margin-left:6px; padding-left:6px;}
+.home_footer .home_footer_info_wrap .footer_privacy span + span::before {content:""; display:block; position:absolute; top:50%; left:0; width:1px; height:10px; background-color:#ccc; transform:translateY(-50%);}
+.home_footer .home_footer_info_wrap .footer_guide ul li p {position:relative; padding-left:0.75em; color:#9F9F9F; font-size:10px; line-height:16px; font-weight:400;}
+.home_footer .home_footer_info_wrap .footer_guide ul li p::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold;}
 /* // home footer */
 
 
@@ -461,3 +505,26 @@ div.chat_guard_wrap .list_count {padding:0 18px 12px; color:#9F9F9F; font-size:1
 @keyframes ani_sos {0% {margin-left:0; transform:translate(-50%,-50%) rotate(0deg);} 14% {margin-left:1px; transform:translate(-50%,-50%) rotate(-0.6deg);} 28% {margin-left:-1px; transform:translate(-50%,-50%) rotate(0.6deg);} 42% {margin-left:1px; transform:translate(-50%,-50%) rotate(-0.6deg);} 56% {margin-left:-1px; transform:translate(-50%,-50%) rotate(0.6deg);} 70% {margin-left:1px; transform:translate(-50%,-50%) rotate(-0.6deg);} 84% {margin-left:-1px; transform:translate(-50%,-50%) rotate(0.6deg);} 100% {margin-left:0;transform:translate(-50%,-50%) rotate(0deg);}}
 /* @keyframes ani_sos_ico {0% {top:0px;} 50% {top:1px;} 100% {top:0px;}} */
 /* // 레이어팝업 sos */
+
+
+/* 회원가입 관련 서비스 정보 */
+.join_service_info_wrap .logo {margin-top:36px; text-align:center;}
+.join_service_info_wrap .logo span {display:inline-flex; justify-content:center; align-items:center; width:160px; height:auto;}
+.join_service_info_wrap .service_info div.txt_wrap {display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:24px; padding:0 18px; text-align:center;}
+.join_service_info_wrap .service_info strong.tit {display:inline-block; color:#27AAFF; font-size:16px; line-height:24px; font-weight:700;}
+.join_service_info_wrap .service_info p.txt {color:#9F9F9F; font-size:12px; line-height:16px; font-weight:400;}
+
+.join_service_info_wrap .service_guide {margin-top:12px; text-align:center;}
+.join_service_info_wrap .service_guide div {display:inline-block; padding:0 40px; text-align:left;}
+.join_service_info_wrap .service_guide ul li {position:relative; padding-left:1.3em; color:#000; font-size:12px; line-height:17px; font-weight:400;}
+.join_service_info_wrap .service_guide ul li::before {content:"·"; display:block; position:absolute; top:0; left:0; width:12px; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold; text-align:center;}
+.join_service_info_wrap .service_guide em {display:block; margin-top:6px; color:#27AAFF; font-size:12px; line-height:17px; font-weight:400; text-align:right;}
+/* // 회원가입 관련 서비스 정보 */
+
+
+/* 회원가입 해외 전화번호 입력 */
+.phone_number_ipt {display:flex; width:100%;}
+.phone_number_ipt > div:first-of-type {width:100%; position:relative !important;}
+.phone_number_ipt input#phone {width:100%; height:50px; border:1px solid #ddd; border-radius:12px; outline:none;}
+.phone_number_ipt input#phone::placeholder {color:#C9C9C9; font-size:14px; line-height:20px; font-weight:500;}
+/* // 회원가입 해외 전화번호 입력 */
