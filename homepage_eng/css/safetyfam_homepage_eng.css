@@ -979,3 +979,93 @@ table.dataTable tbody td:first-of-type {padding-left:2em; text-align:left;}
 }
 /* // 약관 동의 */
 /* // 1:1 문의하기 관련 추가 */
+
+
+
+
+/* 해외버전 계정 삭제 영역 */
+.del_account_wrap {max-width:786px; margin:0 auto; padding:90px 0;}
+.del_account_wrap div.tit strong {display:block; width:100%; margin-bottom:0.5em; padding-bottom:0.25em; border-bottom:2px solid #111; color:#111; font-size:40px; line-height:1.5em; font-weight:bold;}
+
+.del_account_wrap .alert_txt_list {margin-bottom:20px;}
+.del_account_wrap .alert_txt_list p.txt {padding-bottom:20px; font-size:20px; font-weight:bold;}
+.del_account_wrap .alert_txt_list ul {display:inline-flex; flex-direction:column; gap:10px;}
+.del_account_wrap .alert_txt_list ul li { text-align: left;}
+.del_account_wrap .alert_txt_list ul li p {position:relative; padding-left:0.75em; font-size:1em; line-height:1.25em; letter-spacing:0;}
+.del_account_wrap .alert_txt_list ul li p::before {content:"·"; display:block; position:absolute; top:0; left:0; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold; text-align:center;}
+.del_account_wrap .alert_txt_list ul li p.em {color:red;}
+@media only screen and (max-width:720px) {
+	.del_account_wrap {padding:60px 0;}
+	.del_account_wrap .alert_txt_list p.txt {font-size:16px; word-break:keep-all;}
+	.del_account_wrap .alert_txt_list ul li p {font-size:0.875em}
+}
+
+
+/* 계정 정보 입력 */
+.del_account_wrap .form_wrap {display:flex; flex-direction:column; gap:20px; width:100%;}
+.del_account_wrap .form_wrap .row {display:flex; align-items:flex-start; width:100%; min-height:72px;}
+.del_account_wrap .form_wrap .row strong.tit {display:inline-flex; align-items:center; min-width:118px; height:72px; font-size:20px;}
+.del_account_wrap .form_wrap .row .form_con {flex:1; display:flex; align-items:center; width:100%; min-height:inherit;}
+.del_account_wrap .form_wrap .row .form_con .check_wrap {display:flex; align-items:center; gap:20px;}
+.del_account_wrap .form_wrap .row .form_con .check_wrap label {display:inline-block; position:relative; padding-left:2em; font-size:20px;}
+.del_account_wrap .form_wrap .row .form_con .check_wrap label input {position:absolute; top:0; left:0; width:0; height:0; opacity:0;}
+.del_account_wrap .form_wrap .row .form_con .check_wrap label input + span.checkmark {position:absolute; top:50%; left:0; width:1.28571em; height:1.28571em; border:1px solid #888; background-color:#fff; border-radius:100%; transform:translateY(-50%);}
+.del_account_wrap .form_wrap .row .form_con .check_wrap label input + span.checkmark::before {content:""; display:block; position:absolute; top:50%; left:50%; width:50%; height:50%; background-color:transparent; border-radius:100%; transform:translate(-50%,-50%); transition:all 0.2s ease;}
+.del_account_wrap .form_wrap .row .form_con .check_wrap label input ~ span.txt {display:inline-block; color:#888; font-size:20px; font-weight:400;}
+.del_account_wrap .form_wrap .row .form_con .check_wrap label input:checked + span.checkmark {background-color:#fff;}
+.del_account_wrap .form_wrap .row .form_con .check_wrap label input:checked + span.checkmark::before {background-color:#333;}
+.del_account_wrap .form_wrap .row .form_con .check_wrap label input:checked ~ span.txt {color:#000;}
+
+@media only screen and (max-width:720px) {
+	.del_account_wrap {padding:20px;}
+	.del_account_wrap div.tit strong {border-width:1px; font-size:24px;}
+	.del_account_wrap .form_wrap {gap:20px;}
+	.del_account_wrap .form_wrap .row {flex-direction:column; gap:12px; min-height:auto;}
+	.del_account_wrap .form_wrap .row strong.tit {min-width:auto; height:auto; min-height:36px; font-size:16px;}
+	.del_account_wrap .form_wrap .row .form_con {}
+	.del_account_wrap .form_wrap .row .form_con .check_wrap {}
+	.del_account_wrap .form_wrap .row .form_con .check_wrap label {font-size:20px;}
+	.del_account_wrap .form_wrap .row .form_con .check_wrap label input {}
+	.del_account_wrap .form_wrap .row .form_con .check_wrap label input + span.checkmark {}
+	.del_account_wrap .form_wrap .row .form_con .check_wrap label input ~ span.txt {font-size:14px;}
+}
+/* // 계정 정보 입력 */
+
+.del_account_wrap .phonenumber_wrap_test {padding:20px 0;}
+.del_account_wrap .phonenumber_wrap_test .item {display:flex; flex-direction:column; gap:10px; width:100%;}
+.del_account_wrap .phonenumber_wrap_test .item strong.tit {font-size:14px;}
+.del_account_wrap .phonenumber_input_wrap {display:flex; flex-direction:column; gap:6px; width:100%;}
+.del_account_wrap .phonenumber_input_wrap .ipt_set {display:flex; justify-content:space-between; align-items:center; gap:6px; max-width:100%;}
+.del_account_wrap .phonenumber_input_wrap .ipt_set > div:first-of-type {flex:1; width:100%; height:36px;}
+.del_account_wrap .phonenumber_input_wrap .ipt_set input {width:100%; height:36px; padding:0 0 0 10px; border:1px solid #ddd; border-radius:2px; font-size:14px;}
+.del_account_wrap .phonenumber_input_wrap .ipt_set button {width:76px; height:36px; background-color:#333; border-radius:5px;}
+.del_account_wrap .phonenumber_input_wrap .ipt_set button span {display:block; color:#fff; font-size:12px; font-weight:500;}
+.del_account_wrap .phonenumber_input_wrap .ipt_set button:disabled {background-color:#ddd;}
+.del_account_wrap .phonenumber_input_wrap .ipt_set button:disabled span {color:#888;}
+.del_account_wrap .phonenumber_input_wrap .ipt_set span.timer {width:76px; color:red; font-size:12px; text-align:center;}
+.del_account_wrap .ipt_set .iti {width:100%;}
+
+@media only screen and (min-width:720px) {
+	.del_account_wrap .phonenumber_wrap_test {padding:0;}
+	.del_account_wrap .phonenumber_wrap_test .item {gap:20px; padding:20px 0;}
+	.del_account_wrap .phonenumber_wrap_test .item strong.tit {display:inline-flex; align-items:center; min-width:118px; font-size:20px; line-height:unset;}
+	.del_account_wrap .phonenumber_input_wrap {flex:1; gap:10px;}
+	.del_account_wrap .phonenumber_input_wrap .ipt_set {gap:10px;}
+	.del_account_wrap .phonenumber_input_wrap .ipt_set > div:first-of-type {height:72px;}
+	.del_account_wrap .phonenumber_input_wrap .ipt_set input {height:72px; padding:0 20px; font-size:20px;}
+	.del_account_wrap .phonenumber_input_wrap .ipt_set button {width:168px; height:72px;}
+	.del_account_wrap .phonenumber_input_wrap .ipt_set button span {font-size:20px;}
+	.del_account_wrap .phonenumber_input_wrap .ipt_set span.timer {width:168px; font-size:1em;}
+}
+
+/* 가입/해지하기 버튼 */
+.del_account_wrap .btn {margin-top:40px; text-align:center;}
+.del_account_wrap .btn button {width:100%; height:48px; background-color:#333;}
+.del_account_wrap .btn button strong {color:#fff; font-size:14px; line-height:1.45em; font-weight:500;}
+@media only screen and (min-width:720px) {
+	.del_account_wrap .btn {margin-top:60px;}
+	.del_account_wrap .btn button {width:436px; height:80px; border-radius:5px;}
+	.del_account_wrap .btn button strong {font-size:20px;}
+}
+/* // 가입/해지하기 버튼 */
+/* // 해외버전 계정 삭제 영역 */
