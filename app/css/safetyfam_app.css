@@ -528,3 +528,8 @@ div.chat_guard_wrap .list_count {padding:0 18px 12px; color:#9F9F9F; font-size:1
 .phone_number_ipt input#phone {width:100%; height:50px; border:1px solid #ddd; border-radius:12px; outline:none;}
 .phone_number_ipt input#phone::placeholder {color:#C9C9C9; font-size:14px; line-height:20px; font-weight:500;}
 /* // 회원가입 해외 전화번호 입력 */
+
+
+/* 개인정보처리방침 */
+.privacy_wrap {padding:20px; line-height:1.4em; white-space:pre-line;}
+/* // 개인정보처리방침 */
