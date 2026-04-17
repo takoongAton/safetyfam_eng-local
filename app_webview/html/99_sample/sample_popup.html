@@ -142,6 +142,30 @@ input[type="date"]::-webkit-date-and-time-value {
     align-items: center;
     justify-content: center;
   }
+
+
+.date-with-placeholder {
+  position: relative;
+}
+
+/* 값이 비어있을 때 placeholder 텍스트를 보여줌 */
+.date-with-placeholder::before {
+  content: attr(data-placeholder);
+  width: 100%;
+  color: #999;
+}
+
+/* 포커스되거나 값이 입력되면 placeholder를 숨김 */
+.date-with-placeholder:focus::before,
+.date-with-placeholder:valid::before {
+  display: none;
+}
+
+/* 기본 텍스트 정렬을 위해 */
+input[type="date"] {
+  text-align: center;
+}
+
 </style>
 
 
