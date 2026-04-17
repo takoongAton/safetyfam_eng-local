@@ -142,6 +142,13 @@ input[type="date"]::-webkit-date-and-time-value {
     align-items: center;
     justify-content: center;
   }
+input[type="time"]::-webkit-date-and-time-value {
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
 
 .date-with-placeholder {
@@ -200,17 +207,18 @@ input[type="date"] {
 				
 				<div>
 					<label for="input_test123" style="display:block; width:100%;">
-						<input type="date" class="date-with-placeholder" data-placeholder="날짜를 선택하세요222" required id="input_test123">
+						<input type="date" class="date-with-placeholder" data-placeholder="YYYY.MM.DD" required id="input_test123">
 					</label>
 				</div>
 
 				<div>
-					<input type="date" class="date-with-placeholder" data-placeholder="날짜를 선택하세요222" required id="input_test12">
+					<input type="date" class="date-with-placeholder" data-placeholder="YYYY.MM.DD" required id="input_test12">
 				</div>
 				
 				<div>
-					<input type="time" name="" id="" placeholder="00:00" style="width:100%;" />
+					<input type="time" class="date-with-placeholder" data-placeholder="HH:MM" name="" id="" style="width:100%;" />
 				</div>
+
 				<div>
 					<input type="range" name="" id="" min="0" max="100" value="50" step="10" />
 					<span class="range_val">50</span>
