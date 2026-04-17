@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>자녀안전지킴이</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	
+	<!-- font -->
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=block" rel="stylesheet" />
+	
+	<!-- css -->
+	<link rel="stylesheet" href="../../css/reset.css" />
+	<link rel="stylesheet" href="../../css/safetyfam_app.css" />
+	<!-- <link rel="stylesheet" href="../../css/Global.css" /> -->
+	<link rel="stylesheet" href="../../css/slick.css" />
+</head>
+<body>
+
+
+	<style>
+		.home_fam_layer {
+		  position: absolute;
+		  left:auto;
+		  right:auto;
+		  bottom:0;
+		  width: 360px;
+		  height: 360px;
+		  margin:0 auto;
+		  background: #f0f0f0;
+		  border: 1px solid #ccc;
+		}
+		.dragTriger {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 22px;
+		  background: #ddd;
+		  cursor: ns-resize;
+		}
+		.btn_triger {
+		  cursor: ns-resize;
+		}
+		</style>
+		<div class="home_fam_layer de">
+			<div class="dragTriger">
+				<button type="button" class="btn_triger"><span>드래그버튼</span></button>
+			</div>
+		</div>
+
+		
+		<script>
+		const home_fam_layer = document.querySelector('.home_fam_layer');
+		const btnTrigger = document.querySelector('.btn_triger');
+		
+		let isDragging = false;
+		let startY = 0;
+		let startHeight = 0;
+		
+		btnTrigger.addEventListener('mousedown', (e) => {
+		  isDragging = true;
+		  startY = e.clientY;
+		  startHeight = home_fam_layer.offsetHeight;
+		  document.body.style.userSelect = 'none'; // 드래그 시 텍스트 선택 방지
+		});
+		
+		document.addEventListener('mousemove', (e) => {
+		  if (!isDragging) return;
+		  const dy = e.clientY - startY;
+		  const newHeight = startHeight - dy;
+		  home_fam_layer.style.height = `${Math.max(newHeight, 10)}px`; // 최소 높이 50px
+		});
+		
+		document.addEventListener('mouseup', () => {
+		  if (isDragging) {
+			isDragging = false;
+			document.body.style.userSelect = ''; // 드래그 종료 시 선택 허용
+			
+		  }
+		});
+		</script>
+
+</body>
+</html>

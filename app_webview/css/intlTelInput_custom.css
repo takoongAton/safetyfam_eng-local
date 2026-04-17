@@ -1,0 +1,7 @@
+/* 국가코드 관련 css 수정 적용 */
+.iti__flag-container {height:50px;}
+.iti__arrow {position:relative; width:unset; height:unset; border:0 none; margin:0; width:20px; height:20px;}
+.iti__arrow::before {content:""; display:block; width:20px; height:20px; background:url('../images/common/ico_arrow_down.png') no-repeat left top / contain;}
+.iti--separate-dial-code .iti__selected-flag {display:flex; justify-content:space-between; align-items:center; gap:6px; background-color:transparent !important; min-width:122px; padding:0 12px;}
+.iti--separate-dial-code .iti__selected-dial-code {flex:1; margin:0; font-size:14px;}
+/* // 국가코드 관련 css 수정 적용 */

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>자녀안전지킴이</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	
+	<!-- font -->
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=block" rel="stylesheet" />
+	
+	<!-- css -->
+	<link rel="stylesheet" href="../../css/reset.css" />
+	<link rel="stylesheet" href="../../css/safetyfam_app.css" />
+	<!-- <link rel="stylesheet" href="../../css/Global.css" /> -->
+	<link rel="stylesheet" href="../../css/slick.css" />
+<style>
+body,
+
+
+
+.map {width:100%; height:100%; overflow:hidden;}
+.map iframe {width:100%; height:100%; border:0 none;}
+
+.content_wrap#map {height:100%; padding-top:0;}
+.content_wrap#map div.content {height:100%;}
+
+.float_content {display:flex; flex-direction:column; gap:12px 0;  position:absolute; right:0; left:0; width:100%;}
+.float_content.top {top:72px;}
+.float_content.top .box {}
+.float_content.top .box.inner {padding:0 18px;}
+.float_content.bottom {bottom:24px;}
+
+
+
+
+
+/* noti_card */
+.noti_card {display:flex; align-items:center; gap:0 12px; width:100%; height:60px; padding:7px 12px; background:#FF0F6B; border-radius:12px; overflow:hidden; box-shadow:0 1px 6px rgba(0,0,0,0.2);}
+.noti_card span.ico {display:inline-block; width:48px; height:48px; background-color:#fff; border-radius:100%;}
+.noti_card div {flex:1; color:#fff;}
+.noti_card div strong {display:block; font-size:12px; line-height:1.41666em; font-weight:700;}
+.noti_card div p {font-size:11px; line-height:1.41666em; font-weight:400;}
+/* // noti_card */
+
+
+/* safety_list_wrap */
+.safety_list_wrap {padding:0 18px;}
+.safety_list_wrap ul {display:flex; justify-content:space-between; align-items:center; gap:0 6px; width:100%;}
+.safety_list_wrap ul li {width:100%;}
+/* // safety_list_wrap */
+
+
+/* safety_tab_wrap */
+.safety_tab_wrap {padding:0 18px;}
+.safety_tab_wrap ul {display:flex; justify-content:space-between; align-items:center; gap:0 6px; width:100%;}
+.safety_tab_wrap ul li {width:100%;}
+.safety_tab_wrap ul li button {display:flex; justify-content:center; align-items:center; gap:0 4px; width:100%; height:40px; box-shadow:0 1px 6px rgba(0,0,0,0.16); background-color:#fff; border-radius:12px; overflow:hidden;}
+.safety_tab_wrap ul li button span.ico {display:inline-block; width:24px; height:24px;}
+.safety_tab_wrap ul li button span.txt {display:inline-block; font-size:13px; line-height:1em;}
+.safety_tab_wrap ul li button.active {background-color:#5C9DF8;}
+.safety_tab_wrap ul li button.active span.txt {color:#fff;}
+/* // safety_tab_wrap */
+
+
+
+
+/* 홈 검색 */
+.search {display:flex; justify-content:space-between; align-items:center; gap:12px; width:100%; height:48px; padding:0 12px; box-shadow:inset 0 0 1px #9F9F9F, 0 1px 6px rgba(0,0,0,0.2); background-color:#fff; border-radius:12px; overflow:hidden;}
+.search input {flex:1; width:100%; height:100%; border:0 none; color:#000; font-size:14px; font-weight:500;}
+.search input::placeholder {color:#c9c9c9; font-size:inherit; font-weight:inherit;}
+.search button.btn_search {width:24px; height:24px; overflow:hidden;}
+/* // 홈 검색 */
+
+
+
+
+/* 위험지역 */
+.zone_list_wrap {margin:-5px 0 -7px; padding:5px 0 7px; overflow-x: scroll; white-space:nowrap;}
+.zone_list_wrap::-webkit-scrollbar {display:none !important;}
+.zone_list {display:-webkit-inline-box; display:-webkit-inline-flex; display:inline-flex; gap:6px; position: relative; padding:0 18px;}
+/* // 위험지역 */
+
+button.btn_zone {display:inline-flex; justify-content:center; align-items:center; gap:0 4px; padding:8px 9px; border-radius:12px; background-color:#fff; box-shadow:inset 0 0 0 1px #EFEFEF, 0 1px 6px rgba(0,0,0,0.2);}
+button.btn_zone span.ico {display:inline-block; width:24px; height:24px; overflow:hidden;}
+button.btn_zone span.txt {display:inline-block; color:#000; font-size:13px; font-weight:500; line-height:1.46153em;}
+
+
+
+
+/* 현재 위치 주변 */
+.current_area {display:flex; flex-direction:column; justify-content:center; align-items:flex-start; width:100%; height:60px; padding:0 12px; box-shadow:0 1px 6px rgba(0,0,0,0.2); background-color:#fff; border-radius:12px; overflow:hidden;}
+.current_area div {display:flex; align-items:center; gap:6px;}
+.current_area div strong {color:#000; font-size:16px; font-weight:700; line-height:1.5em;}
+.current_area div span.ico {display:inline-block; width:18px; height:18px;}
+.current_area p.txt {color:#9F9F9F; font-size:12px; line-height:17px; font-weight:400;}
+/* // 현재 위치 주변 */
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+	<div class="header_wrap">
+		<div class="temp">
+			<div class="util">
+				<button type="button"><span><img src="../../images/common/ico_back.png" alt="이전"></span></button>
+				<button type="button"><span><img src="../../images/common/ico_home.png" alt="홈"></span></button>
+				<button type="button" class="btn_de" style="background-color:#ff6600; border-radius:2px;"><span>기본</span></button>
+				<button type="button" class="btn_min" style="background-color:#ff6600; border-radius:2px;"><span>최소</span></button>
+				<button type="button" class="btn_max" style="background-color:#ff6600; border-radius:2px;"><span>최대</span></button>
+				<button type="button" class="btn_del" style="background-color:#ff6600; border-radius:2px;"><span>del</span></button>
+				<button type="button" class="btn_add" style="background-color:#ff6600; border-radius:2px;"><span>add</span></button>
+			</div>
+			<h1><strong>자녀안전지킴이</strong></h1>
+			<div class="tools">
+				<button type="button"><span><img src="../../images/common/ico_noti.png" alt="알림"></span></button>
+			</div>
+		</div>
+		<!-- // temp 삭제 -->
+	</div>
+	<!-- // header_wrap -->
+
+	<div class="container_wrap">
+
+		<section class="container">
+
+			<div class="content_wrap" id="map">
+
+				<div class="content">
+
+					<!-- <div class="map"><img src="../../images/temp/map.png" style="max-width:100%; max-height:100%;"></div> -->
+					<div class="map"><iframe style="position:relative; box-sizing:border-box;; margin:0; padding:0; border:0 none; max-width:100%; max-height:100%;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.220294116654!2d126.92515522613641!3d37.526304022049054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c996de38f4001%3A0xaa3f6ec54c32c1df!2zKOyjvCnslYTthqQgQVRPTg!5e0!3m2!1sko!2skr!4v1776217053842!5m2!1sko!2skr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+
+					
+
+
+					<div class="float_content top">
+						<div class="box inner">
+							<div class="noti_card">
+								<span class="ico"><img src="../../images/common/ico_alert_unlink.png" alt="연결끊김"></span>
+								<div>
+									<strong>자녀와 연결되어 있지 않습니다.</strong>
+									<p>초대 링크를 보내 자녀를 등록해 보세요.</p>
+								</div>
+							</div>
+							<!-- // noti_card -->
+						</div>
+						<div class="box inner">
+							<div class="noti_card">
+								<span class="ico"><img src="../../images/common/ico_alert_unlink.png" alt="연결끊김"></span>
+								<div>
+									<strong>자녀와 연결되어 있지 않습니다.</strong>
+									<p>초대 링크를 보내 자녀를 등록해 보세요.</p>
+								</div>
+							</div>
+							<!-- // noti_card -->
+						</div>
+
+						<div class="box inner">
+							
+							<div class="current_area">
+								<div>
+									<strong>“여의도동” 주변</strong>
+									<span class="ico"><img src="../../images/common/ico_gps_on.png" alt="GPS위치"></span>
+								</div>
+								<p class="txt">현재 위치 기준 500m 반경 내 안심/ 위험 지역 알림</p>
+							</div>
+							<!-- // current_area -->
+						</div>
+
+						<div class="box inner">
+							
+							<div class="search">
+								<input type="text" placeholder="도로명, 건물명, 지번으로 검색하세요." />
+								<button type="button" class="btn_search"><span class="ico"><img src="../../images/common/ico_search_off.png" alt="검색" /></span></button>
+							</div>
+						</div>
+
+						<div class="box">
+							
+							<div class="zone_list_wrap">
+								<ul class="zone_list">
+									<li class="zone_item">
+										<button type="button" class="btn_zone">
+											<span class="ico"><img src="../../images/common/ico_btn_school.png" alt="스쿨존 아이콘" /></span>
+											<span class="txt">스쿨존</span>
+										</button>
+									</li>
+									<li class="zone_item">
+										<button type="button" class="btn_zone">
+											<span class="ico"><img src="../../images/common/ico_btn_school.png" alt="스쿨존 아이콘" /></span>
+											<span class="txt">스쿨존</span>
+										</button>
+									</li>
+									<li class="zone_item">
+										<button type="button" class="btn_zone">
+											<span class="ico"><img src="../../images/common/ico_btn_school.png" alt="스쿨존 아이콘" /></span>
+											<span class="txt">스쿨존</span>
+										</button>
+									</li>
+									<li class="zone_item">
+										<button type="button" class="btn_zone">
+											<span class="ico"><img src="../../images/common/ico_btn_school.png" alt="스쿨존 아이콘" /></span>
+											<span class="txt">스쿨존</span>
+										</button>
+									</li>
+									<li class="zone_item">
+										<button type="button" class="btn_zone">
+											<span class="ico"><img src="../../images/common/ico_btn_school.png" alt="스쿨존 아이콘" /></span>
+											<span class="txt">스쿨존</span>
+										</button>
+									</li>
+								</ul>
+							</div>
+							<!-- // zone_list_wrap -->
+
+							<div class="safety_list_wrap">
+								<ul>
+									<li>
+										<button type="button" class="btn_zone">
+											<span class="ico"><img src="../../images/common/ico_btn_school.png" alt="스쿨존 아이콘" /></span>
+											<span class="txt">스쿨존</span>
+										</button>
+									</li>
+									<li>
+										<button type="button" class="btn_zone">
+											<span class="ico"><img src="../../images/common/ico_btn_school.png" alt="스쿨존 아이콘" /></span>
+											<span class="txt">스쿨존</span>
+										</button>
+									</li>
+									<li>
+										<button type="button" class="btn_zone">
+											<span class="ico"><img src="../../images/common/ico_btn_school.png" alt="스쿨존 아이콘" /></span>
+											<span class="txt">스쿨존</span>
+										</button>
+									</li>
+								</ul>
+							</div>
+							<!-- // safety_list_wrap -->
+
+						</div>
+
+						
+						
+					</div>
+					<!-- // float_content -->
+
+
+					<div class="float_content bottom">
+						<div class="box inner">
+							<div class="safety_tab_wrap">
+								<ul>
+									<li>
+										<button type="button" class="btn_zone active">
+											<span class="ico"><img src="../../images/common/ico_map_route.png" alt="어린이 안전 아이콘" /></span>
+											<span class="txt">어린이 안전</span>
+										</button>
+									</li>
+									<li>
+										<button type="button" class="btn_zone">
+											<span class="ico"><img src="../../images/common/ico_map_safezone.png" alt="치안 안전 아이콘" /></span>
+											<span class="txt">치안 안전</span>
+										</button>
+									</li>
+								</ul>
+							</div>
+							<!-- // safety_tab_wrap -->
+						</div>
+						
+					</div>
+				</div>
+
+				<!-- <div class="content_btm">
+					<div class="btm_btn">
+						<div><button type="button" class="btn_next"><span>더보기</span></button></div>
+					</div>
+				</div> -->
+
+			</div><!-- // content_wrap -->
+			
+		</section><!-- // container -->
+
+
+		<div class="layer bottom" style="display:none;">
+
+			<div class="home_fam_layer">
+				<div class="layer_triger"><button type="button" class="btn_triger"><span>드래그버튼</span></button></div>
+
+				<div class="inner">
+					<div class="home_fam_list scroll-wrapper">
+						<ul class="scroll">
+							<li class="item">
+								<div>
+									<div class="home_fam_sel all active">
+										<span class="img"><img src="../../images/temp/img_all_fam.png" alt="이미지"></span>
+										<span class="txt">전체</span>
+									</div>
+								</div>
+							</li>
+							<li class="item">
+								<div>
+									<div class="home_fam_sel">
+										<span class="img"><img src="../../images/temp/temp_profile.jpg" alt="이미지"></span>
+										<span class="txt">윈터</span>
+									</div>
+								</div>
+							</li>
+							<li class="item">
+								<div>
+									<div class="home_fam_sel">
+										<span class="img"><img src="../../images/temp/img_profile_02.png" alt="이미지"></span>
+										<span class="txt">토니토니토니토니토니토니토니토니</span>
+									</div>
+								</div>
+							</li>
+							<li class="item">
+								<div>
+									<div class="home_fam_sel">
+										<span class="img"><img src="../../images/temp/img_add_fam.png" alt="이미지"></span>
+										<span class="txt">추가</span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!-- // home_fam_list -->
+			
+			
+					<div class="home_fam_loc_list" style="display:none;">
+						<ul class="list">
+							<li class="item">
+								<div class="thum">
+									<span class="img"><img src="../../images/temp/temp_profile.jpg" alt="이미지"></span>
+								</div>
+								<div class="txt_wrap">
+									<strong class="name">나나</strong>
+									<p class="location">서울시 영등포구 여의도동</p>
+								</div>
+							</li>
+							<li class="item">
+								<div class="thum">
+									<span class="img"><img src="../../images/temp/img_profile_02.png" alt="이미지"></span>
+								</div>
+								<div class="txt_wrap">
+									<strong class="name">나나</strong>
+									<p class="location">서울시 영등포구 여의도동</p>
+								</div>
+							</li>
+							<li class="item">
+								<div class="thum">
+									<span class="img"><img src="../../images/temp/img_profile_03.png" alt="이미지"></span>
+								</div>
+								<div class="txt_wrap">
+									<strong class="name">나나</strong>
+									<p class="location">서울시 영등포구 여의도동</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!-- // home_fam_loc_list -->
+			
+			
+					<div class="home_fam_util">
+						<ul>
+							<!-- <li>
+								<span class="ico"><img src="../../images/home/ico_home_fam_util_01.png" alt="주변 소리 듣기 아이콘"></span>
+								<p class="txt">주변 소리 듣기</p>
+							</li> -->
+							<li>
+								<span class="ico"><img src="../../images/home/ico_home_fam_util_02.png" alt="긴급 호출 아이콘"></span>
+								<p class="txt">긴급 호출</p>
+							</li>
+							<li>
+								<span class="ico"><img src="../../images/home/ico_home_message.png" alt="유해 메시지 감지 아이콘"></span>
+								<p class="txt">유해 메시지 감지</p>
+							</li>
+							<!-- <li>
+								<span class="ico"><img src="../../images/home/ico_home_route.png" alt="이동 경로 아이콘"></span>
+								<p class="txt">이동 경로</p>
+							</li> -->
+							<!-- <li>
+								<span class="ico"><img src="../../images/home/ico_home_fam_util_03.png" alt="채팅 가드 아이콘"></span>
+								<p class="txt">채팅 가드</p>
+							</li> -->
+						</ul>
+					</div>
+					<!-- // home_fam_util -->
+			
+					<div class="home_fam_bnr">
+						<div class="bnr_slick">
+							<div class="item"><img src="../../images/temp/bnr_temp.png" alt="배너"></div>
+							<div class="item"><img src="../../images/temp/bnr_temp.png" alt="배너"></div>
+							<div class="item"><img src="../../images/temp/bnr_temp.png" alt="배너"></div>
+							<div class="item"><img src="../../images/temp/bnr_temp.png" alt="배너"></div>
+						</div>
+					</div>
+					<!-- // home_fam_bnr -->
+
+
+					<div class="home_notice">
+						<ul>
+							<li><span>공지사항</span></li>
+							<li><span>자주 묻는 질문</span></li>
+							<li><span>이용 안내</span></li>
+						</ul>
+					</div>
+					<!-- // home_notice -->
+			
+			
+					<div class="home_footer">
+						<div>
+							<span>서비스 제공사 : (주)아톤</span>
+							<span>개인정보처리방침</span>
+						</div>
+						<div>
+							<span>서비스 가입/ 해지문의 </span>
+							<span>080-869-4273(무료)<br />(평일) 09:00~18:00 (점심시간 12:00~13:00)</span>
+						
+							<ul>
+								<li><p>본 서비스는 가입 즉시 서비스가 개시되는 상품으로 청약철회가 불가능합니다. (전자상거래 등에서의 소비자보호에 관한 법률 제17조 2항 5호에 따라 디지털 콘텐츠의 제공이 개시된 경우 청약철회를 제공하지 않습니다.)</p></li>
+								<li><p>서비스를 이용할 때 가입한 요금제에 따라 데이터 요금이 발생할 수 있습니다.</p></li>
+							</ul>
+						</div>
+					</div>
+					<!-- // home_footer -->
+
+				</div>
+				<!-- // inner -->
+
+			</div>
+			<!-- // home_fam_layer -->
+
+		</div>
+		<!-- // .layer.bottom -->
+		
+		
+	</div><!-- // container_wrap -->
+
+
+	<!-- <div class="bottom-nav_wrap">
+		<nav class="bottom-nav">
+			<button href="#home" class="nav-item active">
+				<span class="ico"><img src="../../images/common/ico_gnb_home_on.png" alt="home"></span>
+				<span class="txt">홈</span>
+			</button>
+			<button href="#location" class="nav-item">
+				<span class="ico"><img src="../../images/common/ico_gnb_location_off.png" alt="location_on"></span>
+				<span class="txt">아이 위치</span>
+			</button>
+			<button href="#guard" class="nav-item">
+				<span class="ico"><img src="../../images/common/ico_gnb_chat_off.png" alt="shield_person">	</span>
+				<span class="txt">채팅 가드</span>
+			</button>
+			<button href="#settings" class="nav-item">
+				<span class="ico"><img src="../../images/common/ico_gnb_set_off.png" alt="settings"></span>
+				<span class="txt">설정</span>
+			</button>
+		</nav>
+	</div> -->
+
+
+	<div class="tab-bar-wrapper">
+		<nav class="tab-bar">
+			<a href="#home" class="tab-bar__item is-active">
+				<span class="tab-bar__icon">
+					<img src="../../images/common/ico_gnb_home_on.png" alt="홈">
+				</span>
+				<span class="tab-bar__label">홈</span>
+			</a>
+
+			<a href="#location" class="tab-bar__item">
+				<span class="tab-bar__icon">
+					<img src="../../images/common/ico_gnb_location_off.png" alt="아이 위치">
+				</span>
+				<span class="tab-bar__label">아이 위치</span>
+			</a>
+
+			<a href="#guard" class="tab-bar__item">
+				<span class="tab-bar__icon">
+					<img src="../../images/common/ico_gnb_chat_off.png" alt="채팅 가드">
+				</span>
+				<span class="tab-bar__label">채팅 가드</span>
+			</a>
+
+			<a href="#settings" class="tab-bar__item">
+				<span class="tab-bar__icon">
+					<img src="../../images/common/ico_gnb_set_off.png" alt="설정">
+				</span>
+				<span class="tab-bar__label">설정</span>
+			</a>
+		</nav>
+	</div>
+	<!-- // footer_wrap (하단 고정 영역) -->
+
+</div><!-- // wrap -->
+
+
+<style>
+.home_fam_layer {position:absolute; bottom:0; left:0; right:0; width:100%; max-width:720px; height:0; max-height:90%; margin:0 auto; transition:all 0.4s ease-in-out; overflow-y:auto; padding-bottom:60px !important;}
+/* .home_fam_layer.de {overflow-y:hidden;} */
+/* .home_fam_layer.min {overflow-y:hidden;} */
+/* .home_fam_layer.max {height:90vh;} */
+</style>
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../../js/slick.js"></script>
+<!-- <script src="../../js/temp.js"></script> -->
+
+
+<script>
+
+$(document).ready(function(){
+	/* gallery main */
+	function guideSlick(){
+		$('.bnr_slick').slick({
+			dots: true,
+			dotsClass: "bnr_slide_dot",
+			infinite: true,
+			arrows: false,
+			// centerMode: true,
+			// centerPadding : '18px'
+		});
+	}
+	guideSlick();
+})
+
+
+/* 테스트 스크립트 */
+let home_fam_layer = document.querySelector(".home_fam_layer");
+let home_fam_inner = home_fam_layer.querySelector(".inner");
+let keepClass = "home_fam_layer";
+let maxHeight = window.outerHeight * 0.9;
+
+let layer_triger = document.querySelector(".layer_triger")
+let home_fam_list = document.querySelector(".home_fam_list");
+let home_fam_util = document.querySelector(".home_fam_util");
+let home_fam_bnr = document.querySelector(".home_fam_bnr");
+let home_fam_list_items = home_fam_list.querySelectorAll(".home_fam_sel");
+
+home_fam_list_items.forEach(function(item){
+	item.addEventListener("click", function(){
+		let home_fam_loc_list = document.querySelector(".home_fam_loc_list");
+		home_fam_loc_list.style.display = "block";
+		homeFamLayer("max");
+	})
+})
+
+function homeFamLayer(aa){
+	let addClass = aa;
+	home_fam_layer.removeAttribute("style");
+	home_fam_layer.className = keepClass;
+
+	let home_fam_loc_list = document.querySelector(".home_fam_loc_list");
+	let tempHeight;
+
+	if(addClass == "de" || addClass == "min") {
+		
+		if(addClass == "de") {
+			tempHeight = layer_triger.clientHeight + home_fam_list.offsetHeight + home_fam_util.clientHeight + home_fam_bnr.clientHeight + "px";
+		} else {
+			tempHeight = layer_triger.clientHeight + home_fam_list.offsetHeight + "px";
+		}
+		home_fam_layer.style.height = tempHeight;
+		home_fam_layer.classList.add(addClass);
+		home_fam_loc_list.style.display = "none";
+		home_fam_layer.style.overflowY = "hidden";
+	} else {
+		home_fam_loc_list.style.display = "block";
+
+		if(home_fam_inner.clientHeight <= maxHeight) {
+			home_fam_layer.style.height = home_fam_inner.clientHeight + layer_triger.clientHeight + "px";
+		} else {
+			home_fam_layer.style.height = "calc(100% - 76px)";
+		}
+		home_fam_layer.style.overflowY = "auto";
+	}
+	home_fam_layer.scrollTo(0, 0);
+}
+homeFamLayer("de");
+
+document.querySelector(".btn_de").addEventListener("click", function(){
+	homeFamLayer("de");
+})
+document.querySelector(".btn_min").addEventListener("click", function(){
+	homeFamLayer("min");
+})
+document.querySelector(".btn_max").addEventListener("click", function(){
+	homeFamLayer("max");
+})
+/* // 테스트 스크립트 */
+
+document.querySelector(".btn_triger").addEventListener("click", function(){
+	homeFamLayer("min");
+})
+</script>
+
+</body>
+</html>

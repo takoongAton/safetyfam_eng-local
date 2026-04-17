@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>자녀안전지킴이</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	
+	<!-- font -->
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=block" rel="stylesheet" />
+	
+	<!-- css -->
+	<link rel="stylesheet" href="../../css/reset.css" />
+	<link rel="stylesheet" href="../../css/safetyfam_app.css" />
+	<!-- <link rel="stylesheet" href="../../css/Global.css" /> -->
+	<link rel="stylesheet" href="../../css/slick.css" />
+</head>
+<body>
+
+<div class="wrap">
+
+	<div class="header_wrap">
+		<div class="temp">
+			<div class="util">
+				<button type="button"><span><img src="../../images/common/ico_back.png" alt="이전"></span></button>
+				<!-- <button type="button"><span><img src="../../images/common/ico_home.png" alt="홈"></span></button> -->
+			</div>
+			<h1><strong>페이지 타이틀</strong></h1>
+			<!-- <div class="tools">
+				<button type="button"><span><img src="../../images/common/ico_noti.png" alt="알림"></span></button>
+			</div> -->
+		</div>
+		<!-- // temp 삭제 -->
+	</div>
+	<!-- // header_wrap -->
+
+	<div class="container_wrap">
+
+		<section class="container">
+
+			<div class="content_wrap divide">
+
+				<div class="content_center">
+
+					<div class="error">
+						<div class="img"><img src="../../images/common/ico_caution.png" alt="아이콘"></div>
+						<div class="tit">서비스 이용에<br>
+							불편을 드려 죄송합니다.</div>
+						<p class="txt">서비스 연결이 원활하지 않으니<br>
+							잠시 후 다시 시도해 주세요.</p>
+						<button type="button" class="btn">
+							<span class="ico"><img src="../../images/common/ico_btn_refresh.png" alt="새로고침 아이콘"></span>
+							<span class="txt">새로고침</span>
+						</button>
+					</div>
+
+
+					<div class="overlay_panel top">
+						<div class="box inner">
+
+							<div class="custom-select_wrap right">
+								<div>
+									<div class="custom-select">
+										<div class="triger">
+											<button type="button" class="btn_triger"><span>나나</span></button>
+										</div>
+										<ul>
+											<li><span>니니</span></li>
+											<li><span>알상무</span></li>
+										</ul>
+									</div>
+									<!-- // custom-select -->
+								 </div>
+							</div>
+						</div>
+
+					</div>
+					<!-- // overlay_panel top -->
+
+				</div>
+				<!-- // content_center -->
+
+			</div><!-- // content_wrap -->
+			
+		</section><!-- // container -->
+		
+	</div><!-- // container_wrap -->
+
+
+	<!-- <div class="footer_wrap">
+		<div class="btnGroup">
+			<div>
+				<button type="button" class="btn line" disabled=""><span>취소</span></button>
+			</div>
+			<div>
+				<button type="button" class="btn fill"><span>확인</span></button>
+			</div>
+		</div>
+	</div> -->
+	<!-- // footer_wrap (하단 고정 영역) -->
+
+</div><!-- // wrap -->
+
+
+
+<style>
+:root {
+	--text-label:#666666;
+	--text-main:#000000;
+	--text-gray-dark:#000000;
+	--primary-color:#27aaff;
+	--text-shadow:0 0 1px rgba(0, 0, 0, 0.16);
+}
+/* 기본 팝업 */
+.modal-side {display:block; /* 기본 숨김 */ flex-direction:column; align-items:flex-start; justify-content:flex-start; gap:10px; position:fixed; /* 고정 위치 */ top:50%; left:50%; width:298px; padding:16px; border-radius:24px; background-color:#fff; transform:translate(-50%, -75%); z-index:10001; box-shadow:0 4px 4px rgba(0, 0, 0, 0.25); overflow:hidden;}
+.modal-side.active {display:flex;}
+.modal-side__label {display:block; color:var(--text-label, #666666); font-size:14px; line-height:1.29411em; letter-spacing:-0.026875rem; font-weight:500; word-break:keep-all;}
+.modal-side__title {display:block; color:var(--text-main, #000000); font-size:18px; line-height:1.29411em; letter-spacing:-0.026875rem; font-weight:700; word-break:keep-all;}
+.modal-side__desc {color:var(--text-gray-dark, #000000); text-align:left; font-size:14px; line-height:1.5em; letter-spacing:-0.025em; word-break:keep-all;}
+.modal-side__content {display:flex; flex-direction:column; gap:10px; width:100%; padding:8px 8px 14px;}
+.modal-side__footer {display:flex; flex-direction:row; gap:10px; width:100%; justify-content:space-between; align-items:center;}
+.modal-side__footer button {width:100%; height:48px; border-radius:100px; font-family:inherit; line-height:1em; cursor:pointer;}
+.modal-side__footer button span {display:inline-block; color:inherit; font-size:17px; line-height:1em; font-weight:500; vertical-align: -webkit-baseline-middle; text-shadow:var(--text-shadow);}
+.modal-side__btn-cancel {background-color:rgba(120,120,128,0.16); color: #000;}
+.modal-side__btn-confirm {background-color:var(--primary-color); color: #fff;}
+.modal-side__btn-confirm span {font-weight:700 !important; text-shadow:0 0 1px rgba(0, 0, 0, 0.16);}
+/* // 기본 팝업 */
+</style>
+
+
+
+
+
+<div class="modal-side" id="exitPopup">
+	<div class="modal-side__content">
+		<div class="modal-side__header">
+			<!-- <p class="modal-side__label">개인정보 보호 서비스</p> -->
+			<p class="modal-side__title">앱 사용 제한 설정</p>
+			<p class="modal-side__desc">설정한 기간 동안 앱 사용이 제한됩니다.</p>
+		</div>
+		<div class="modal-side__custom">
+			<input type="text">
+			<input type="date" name="" id="">
+			<input type="datetime" name="" id="">
+		</div>
+	</div>
+	<div class="modal-side__footer">
+		<button type="button" class="btn modal-side__btn-cancel" id="btnExitCancel">
+			<span>취소</span>
+		</button>
+		<button type="button" class="btn modal-side__btn-confirm" id="btnExitConfirm">
+			<span>확인</span>
+		</button>
+	</div>
+</div>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../../js/slick.js"></script>
+<script src="../../js/temp.js"></script>
+
+
+
+</body>
+</html>
