@@ -42,7 +42,7 @@ body,
 
 
 /* safety_tab_wrap */
-.safety_tab_wrap {padding:0 18px;}
+.safety_tab_wrap {}
 .safety_tab_wrap ul {display:flex; justify-content:space-between; align-items:center; gap:0 6px; width:100%;}
 .safety_tab_wrap ul li {width:100%;}
 .safety_tab_wrap ul li button {display:flex; justify-content:center; align-items:center; gap:0 4px; width:100%; height:40px; box-shadow:0 1px 6px rgba(0,0,0,0.16); background-color:#fff; border-radius:12px; overflow:hidden;}
@@ -146,11 +146,10 @@ button.btn_zone span.txt {display:inline-block; color:#000; font-size:13px; font
 								<div>
 									<div class="custom-select">
 										<div class="triger">
-											<button type="button" class="btn_triger"><span>나나</span></button>
+											<button type="button" class="btn_triger"><span>오늘</span></button>
 										</div>
 										<ul>
-											<li><span>니니</span></li>
-											<li><span>알상무</span></li>
+											<li><span>날짜선택</span></li>
 										</ul>
 									</div>
 									<!-- // custom-select -->
@@ -291,9 +290,59 @@ button.btn_zone span.txt {display:inline-block; color:#000; font-size:13px; font
 							</div>
 							<!-- // safety_tab_wrap -->
 						</div>
-						
+<style>
+.path_wrap {padding:6px 0;  background-color:#FFFFFF; border:1px solid #eee; border-radius:12px; box-shadow:0 1px 6px rgba(0,0,0,0.16);}
+.path_wrap div.path_timetable {display:flex; align-items:center; gap:10px; padding:6px 12px;}
+.path_wrap div.path_timetable span.ico {display:inline-block; width:24px; height:24px;}
+.path_wrap div.path_timetable p.txt {color:#000; font-size:14px; line-height:20px; font-weight:500;}
+
+.path_wrap div.path_points {max-height:168px; overflow-y:auto;}
+.path_wrap div.path_points ul {position:relative;}
+.path_wrap div.path_points ul::before {content:""; position:absolute; left:24px; top:50%; width:0; height:calc(100% - 36px); border-left:2px dashed #9F9F9F; transform:translate(-50%,-50%); z-index:0;}
+.path_wrap div.path_points ul li {display:flex; align-items:flex-start; gap:6px; position:relative; padding:6px 12px; z-index:1;}
+.path_wrap div.path_points ul li span.ico {display:inline-block; width:24px; min-width:24px; height:24px;}
+.path_wrap div.path_points ul li span.ico::before {content:""; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);}
+.path_wrap div.path_points ul li p.txt {display:flex; align-self:center; color:#000; font-size:14px; line-height:17px; font-weight:500;}
+</style>
+						<div class="box inner">
+							<label>아이 위치 관리</label>
+							<div class="path_wrap">
+								<div class="path_timetable">
+									<span class="ico"><img src="../../images/home/ico_map_time.png" alt="시게 아이콘"></span>
+									<p class="txt">09:01 ~ 11:30</p>
+								</div>
+								<div class="path_timetable">
+									<span class="ico"><img src="../../images/home/ico_map_time.png" alt="시게 아이콘"></span>
+									<p class="txt">이동 경로가 없습니다.</p>
+								</div>
+								<div class="path_points">
+									<ul>
+										<li>
+											<span class="ico"><img src="../../images/home/ico_dot_danger.png" alt="위험지역 아이콘" /></span>
+											<p class="txt">%지정장소%%지정장소%%지정장소%%지정장소%%지정장소%%지정장소%%지정장소%%지정장소%%지정장소%%지정장소%%지정장소%</p>
+										</li>
+										<li>
+											<span class="ico"><img src="../../images/home/ico_dot_arrive.png" alt="현재위치 아이콘" /></span>
+											<p class="txt">%지정장소%</p>
+										</li>
+										<li>
+											<span class="ico"><img src="../../images/home/ico_dot_safe.png" alt="안전지역 아이콘" /></span>
+											<p class="txt">%지정장소%</p>
+										</li>
+										<li>
+											<span class="ico"><img src="../../images/home/ico_dot_arrive.png" alt="도착 아이콘" /></span>
+											<p class="txt">%지정장소%</p>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- // path_wrap -->
+						</div>
 					</div>
+					<!-- // overlay_panel -->
+				
 				</div>
+				<!-- // content -->
 
 				<!-- <div class="content_btm">
 					<div class="btm_btn">
