@@ -111,35 +111,43 @@
 	--primary-color:#27aaff;
 	--text-shadow:0 0 1px rgba(0, 0, 0, 0.16);
 }
+
+.dim {position:fixed; top:0; right:0; bottom:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index:10000; backdrop-filter:blur(0.4px);}
 /* 기본 팝업 */
-.modal-side {display:block; /* 기본 숨김 */ flex-direction:column; align-items:flex-start; justify-content:flex-start; gap:10px; position:fixed; /* 고정 위치 */ top:50%; left:50%; width:298px; padding:16px; border-radius:24px; background-color:#fff; transform:translate(-50%, -75%); z-index:10001; box-shadow:0 4px 4px rgba(0, 0, 0, 0.25); overflow:hidden;}
+.modal-side {display:block; /* 기본 숨김 */ flex-direction:column; align-items:flex-start; justify-content:flex-start; gap:10px; position:fixed; /* 고정 위치 */ top:50%; left:50%; width:298px; border-radius:24px; background-color:#fff; transform:translate(-50%, -50%); z-index:10001; box-shadow:0 4px 4px rgba(0, 0, 0, 0.05); overflow:hidden;}
 .modal-side.active {display:flex;}
-.modal-side__label {display:block; color:var(--text-label, #666666); font-size:14px; line-height:1.29411em; letter-spacing:-0.026875rem; font-weight:500; word-break:keep-all;}
-.modal-side__title {display:block; color:var(--text-main, #000000); font-size:18px; line-height:1.29411em; letter-spacing:-0.026875rem; font-weight:700; word-break:keep-all;}
-.modal-side__desc {color:var(--text-gray-dark, #000000); text-align:left; font-size:14px; line-height:1.5em; letter-spacing:-0.025em; word-break:keep-all;}
-.modal-side__content {display:flex; flex-direction:column; gap:10px; width:100%; padding:8px 8px 14px;}
-.modal-side__footer {display:flex; flex-direction:row; gap:10px; width:100%; justify-content:space-between; align-items:center;}
-.modal-side__footer button {width:100%; height:48px; border-radius:100px; font-family:inherit; line-height:0; cursor:pointer;}
+.modal-side__header {display:flex; flex-direction:column; align-items:center; gap:1.5em 0;}
+/* .modal-side__label {display:block; color:var(--text-label, #666666); font-size:14px; line-height:1.29411em; letter-spacing:-0.026875rem; font-weight:500; word-break:keep-all;} */
+.modal-side__icon {display:inline-flex; width:60px; height:60px;}
+.modal-side__title {display:block; color:var(--text-main, #000000); font-size:18px; line-height:1.44444em; letter-spacing:-0.026875rem; font-weight:700; word-break:keep-all;}
+.modal-side__desc {color:var(--text-gray-dark, #000000); font-size:16px; line-height:1.5em; letter-spacing:-0.025em;  text-align:center; word-break:keep-all;}
+
+.modal-side__content {display:flex; flex-direction:column; gap:10px; width:100%; padding:36px 18px;}
+.modal-side__footer {display:flex; flex-direction:row; justify-content:space-between; align-items:center; width:100%; border-top:1px solid #ccc;}
+
+.modal-side__footer button {width:100%; height:60px; font-family:inherit; line-height:0; cursor:pointer;}
 .modal-side__footer button span {display:inline-block; color:inherit; font-size:17px; line-height:1em; font-weight:500; vertical-align: -webkit-baseline-middle; text-shadow:var(--text-shadow);}
-.modal-side__btn-cancel {background-color:rgba(120,120,128,0.16); color: #000;}
-.modal-side__btn-confirm {background-color:var(--primary-color); color: #fff;}
+.modal-side__btn-cancel {color:#9F9F9F;}
+.modal-side__btn-confirm {color:var(--primary-color);}
 .modal-side__btn-confirm span {font-weight:700 !important; text-shadow:0 0 1px rgba(0, 0, 0, 0.16);}
 /* // 기본 팝업 */
 .input_test {display:flex; flex-wrap:wrap; gap:5px; }
-.input_test input {background-color:#F5F5F5; border:1px solid #ddd; height:46px; border-radius:12px; text-align:center;}
+.input_test input {background-color:#F5F5F5; border:1px solid #ddd; height:46px; border-radius:12px; text-align:center !important;}
 .input_test input::placeholder {color:#ff6600 !important;}
 </style>
 
 
 
 
-
-<div class="modal-side" id="exitPopup">
+<div class="dim"></div>
+<div class="modal-side" id="testpop123">
 	<div class="modal-side__content">
 		<div class="modal-side__header">
 			<!-- <p class="modal-side__label">개인정보 보호 서비스</p> -->
-			<p class="modal-side__title">앱 사용 제한 설정</p>
-			<p class="modal-side__desc">설정한 기간 동안 앱 사용이 제한됩니다.</p>
+			<span class="modal-side__icon"><img src="../../images/common/ico_caution.png" alt="아이콘"></span>
+			<p class="modal-side__title">비밀번호 입력</p>
+			<p class="modal-side__desc">비밀번호가 초기화 되었습니다.<br />
+				휴대폰 인증 후 비밀번호 재설정을 하시겠습니까?</p>
 		</div>
 		<div class="modal-side__custom">
 			<div class="input_test">
