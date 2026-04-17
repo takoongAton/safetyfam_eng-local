@@ -150,9 +150,14 @@ input[type="date"]::-webkit-date-and-time-value {
 
 /* 값이 비어있을 때 placeholder 텍스트를 보여줌 */
 .date-with-placeholder::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  
   content: attr(data-placeholder);
   width: 100%;
   color: #999;
+  pointer-events: none;
 }
 
 /* 포커스되거나 값이 입력되면 placeholder를 숨김 */
@@ -183,10 +188,14 @@ input[type="date"] {
 		</div>
 		<div class="modal-side__custom">
 			<div class="input_test">
-				<input type="text" placeholder="2026-04-17" />
 				<input type="text" placeholder="날짜를 선택하세요" onfocus="(this.type='date')" onblur="(this.value=='' ? this.type='text' : this.type='date')" id="dateInput" />
-				<input type="date" class="date-with-placeholder" data-placeholder="날짜를 선택하세요222" required>
-				<input type="datetime" name="" id="" placeholder="2026-04-17 13:28" />
+				
+				<label for="input_test123" style="display:block; width:100%;">
+					<input type="date" class="date-with-placeholder" data-placeholder="날짜를 선택하세요222" required id="input_test123">
+				</label>
+
+				<input type="date" class="date-with-placeholder" data-placeholder="날짜를 선택하세요222" required id="input_test12">
+				
 				<input type="time" name="" id="" placeholder="00:00" />
 				<input type="range" name="" id="" min="0" max="100" value="50" step="10" />
 			</div>
