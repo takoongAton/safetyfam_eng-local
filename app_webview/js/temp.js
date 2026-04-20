@@ -193,3 +193,20 @@ if (isIOS) {
   // iOS와 Android가 아닐 때 처리 (예: PC 브라우저)
 }
 
+
+
+
+
+/* custom-select */
+let custom_select = document.querySelectorAll(".custom-select");
+if(custom_select) {
+    custom_select.forEach(function(item){
+        let btn_triger = item.querySelector("button.btn_triger");
+        btn_triger.addEventListener("click", function(){
+            // btn_triger.closest(".custom-select").classList.toggle("active");
+			item.classList.toggle("active");
+           	// item.querySelector("ul").classList.toggle("active");
+	    })    
+    })
+}
+/* //custom-select */

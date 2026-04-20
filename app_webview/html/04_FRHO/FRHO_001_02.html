@@ -117,7 +117,7 @@
 						<!-- // home_fam_list -->
 				
 
-						<div class="home_fam_loc_list" style="display:none;">
+						<div class="home_fam_loc_list" style="display:block !important;">
 							<div class="list">
 								<div class="item">
 									<div class="user_box">
@@ -774,7 +774,7 @@ function homeFamLayer(aa){
 		}
 		home_fam_layer.style.height = tempHeight;
 		home_fam_layer.classList.add(addClass);
-		home_fam_loc_list.style.display = "none";
+		home_fam_loc_list.style.display = "block";
 		home_fam_layer.style.overflowY = "hidden";
 	} else {
 		home_fam_loc_list.style.display = "block";
@@ -788,7 +788,7 @@ function homeFamLayer(aa){
 	}
 	home_fam_layer.scrollTo(0, 0);
 }
-homeFamLayer("min");
+homeFamLayer("de");
 
 document.querySelector(".btn_de")?.addEventListener("click", function(){
 	homeFamLayer("de");
