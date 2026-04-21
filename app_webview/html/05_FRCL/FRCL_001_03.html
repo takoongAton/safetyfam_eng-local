@@ -14,6 +14,27 @@
 	<link rel="stylesheet" href="../../css/safetyfam_app.css" />
 	<!-- <link rel="stylesheet" href="../../css/Global.css" /> -->
 	<link rel="stylesheet" href="../../css/slick.css" />
+
+
+<style>
+/* 안심존 설정 */
+.my_safety_zone_wrap {display:flex; flex-direction:column; gap:12px; width:100%; padding:0 18px;}
+
+.my_safety_zone_txt {display:flex; flex-direction:column; width:100%; padding:10px 12px; background-color:#fff; box-shadow:inset 0 0 1px #EFEFEF, 0 1px 6px rgba(0,0,0,0.06); border-radius:12px; position:relative; color:#9F9F9F; font-size:14px; line-height:1.42857em;}
+/* 내 안심존 리스트 */
+.my_safety_zone_list {}
+.my_safety_zone_list ul {display:flex; flex-direction:column; gap:12px 0;; width:100%;;}
+.my_safety_zone_list ul li {display:flex; flex-direction:column; width:100%; padding:10px 48px 12px 12px; background-color:#fff; box-shadow:inset 0 0 1px #EFEFEF, 0 1px 6px rgba(0,0,0,0.06); border-radius:12px; position:relative;}
+.my_safety_zone_list ul li strong {display:block; color:#000; font-size:16px; line-height:1.3125em; font-weight:700;}
+.my_safety_zone_list ul li p {color:#9F9F9F; font-size:12px; line-height:1.41666em; font-weight:400;}
+.my_safety_zone_list ul li::after {content:''; position:absolute; top:50%; right:12px; width:24px; height:24px; background:url('../../images/common/ico_arrow_right.png'); background-size:100%;transform: translateY(-50%);}
+/* // 내 안심존 리스트 */
+
+.my_safety_zone_add {}
+.my_safety_zone_add .btn_add {display:flex; align-items:center; justify-content: flex-start; width:100%; height:60px; padding:0 12px; box-shadow:inset 0 0 1px #EFEFEF, 0 1px 6px rgba(0,0,0,0.06); border-radius:12px; background: #fff url('../../images/common/ico_add.png') no-repeat right 12px center / 24px 24px; color:#000; font-size:16px; line-height:1.5em; font-weight:700; text-align:left;}
+/* // 안심존 설정 */
+</style>
+
 </head>
 <body>
 
@@ -22,96 +43,57 @@
 	<div class="header_wrap">
 		<div class="temp">
 			<div class="util">
-				<!-- <button type="button"><span><img src="../../images/common/ico_back.png" alt="이전"></span></button> -->
-				<button type="button"><span><img src="../../images/common/ico_home.png" alt="홈"></span></button>
+				<button type="button"><span><img src="../../images/common/ico_back.png" alt="이전"></span></button>
+				<!-- <button type="button"><span><img src="../../images/common/ico_home.png" alt="홈"></span></button> -->
 			</div>
-			<h1><strong>자녀안전지킴이</strong></h1>
+			<h1><strong>%닉네임% 안심존 설정</strong></h1>
 			<div class="tools">
-				<button type="button"><span><img src="../../images/common/ico_noti.png" alt="알림"></span></button>
+				<!-- <button type="button"><span><img src="../../images/common/ico_noti.png" alt="알림"></span></button> -->
 			</div>
 		</div>
 		<!-- // temp 삭제 -->
 	</div>
 	<!-- // header_wrap -->
-
+	 
 	<div class="container_wrap">
 
 		<section class="container">
 
-			<div class="content_wrap full">
+			<div class="content_wrap">
 
 				<div class="content">
-					<!-- <div class="map"><img src="../../images/temp/map.png" style="max-width:100%; max-height:100%;"></div> -->
-					<div class="map">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.220294116654!2d126.92515522613641!3d37.526304022049054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c996de38f4001%3A0xaa3f6ec54c32c1df!2zKOyjvCnslYTthqQgQVRPTg!5e0!3m2!1sko!2skr!4v1776217053842!5m2!1sko!2skr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-					</div>
 
-					<div class="overlay_panel top">
-						<div class="box inner">
+					<div class="my_safety_zone_wrap">
 
-							<div class="custom-select_wrap">
-								<div>
-									<div class="custom-select">
-										<div class="triger">
-											<button type="button" class="btn_triger"><span>나나</span></button>
-										</div>
-										<ul>
-											<li><span>니니</span></li>
-											<li><span>알상무</span></li>
-										</ul>
-									</div>
-									<!-- // custom-select -->
-								 </div>
-							</div>
+						<div class="my_safety_zone_txt">
+							자주 가는 장소를 등록해 보세요.<br />
+							출발하거나 도착하면 알림을 받을 수 있어요.
 						</div>
 
 
-						<div class="box inner">
-							<div class="noti_card">
-								<span class="ico"><img src="../../images/common/ico_alert_unlink.png" alt="연결끊김"></span>
-								<div>
-									<strong>자녀와 연결되어 있지 않습니다.</strong>
-									<p>초대 링크를 보내 자녀를 등록해 보세요.</p>
-								</div>
-							</div>
-							<!-- // noti_card -->
+						<div class="my_safety_zone_list">
+							<ul>
+								<li>
+									<strong>집</strong>
+									<p>서울특별시 영등포구 여의동</p>
+								</li>
+								<li>
+									<strong>집</strong>
+									<p>서울특별시 영등포구 여의동</p>
+								</li>
+							</ul>
 						</div>
+						<!-- // my_safety_zone_list -->
+
+						<div class="my_safety_zone_add">
+							<button type="button" class="btn_add"><span>안심존+ 추가</span></button>
+						</div>
+						<!-- // my_safety_zone_add -->
+
 
 					</div>
-					<!-- // overlay_panel -->
+					<!-- // my_safety_zone_wrap -->
 
-
-					<div class="overlay_panel bottom">
-						<div class="box">
-							<div class="safety_list_wrap">
-								<ul>
-									<li>
-										<button type="button" class="btn_zone">
-											<span class="ico"><img src="../../images/common/ico_map_path.png" alt="이동 경로 아이콘" /></span>
-											<span class="txt">이동 경로</span>
-										</button>
-									</li>
-									<li>
-										<button type="button" class="btn_zone">
-											<span class="ico"><img src="../../images/common/ico_map_safezone.png" alt="안심존+ 아이콘" /></span>
-											<span class="txt">안심존+</span>
-										</button>
-									</li>
-									<li>
-										<button type="button" class="btn_zone">
-											<span class="ico"><img src="../../images/common/ico_map_nearby.png" alt="주변지역 아이콘" /></span>
-											<span class="txt">주변 지역</span>
-										</button>
-									</li>
-								</ul>
-							</div>
-							<!-- // safety_list_wrap -->
-						</div>
-						<!-- // box -->
-					</div>
-
-
-					
 				</div>
 				<!-- // content -->
 
@@ -131,29 +113,8 @@
 	</div><!-- // container_wrap -->
 
 
-	<!-- <div class="bottom-nav_wrap">
-		<nav class="bottom-nav">
-			<button href="#home" class="nav-item active">
-				<span class="ico"><img src="../../images/common/ico_gnb_home_on.png" alt="home"></span>
-				<span class="txt">홈</span>
-			</button>
-			<button href="#location" class="nav-item">
-				<span class="ico"><img src="../../images/common/ico_gnb_location_off.png" alt="location_on"></span>
-				<span class="txt">아이 위치</span>
-			</button>
-			<button href="#guard" class="nav-item">
-				<span class="ico"><img src="../../images/common/ico_gnb_chat_off.png" alt="shield_person">	</span>
-				<span class="txt">채팅 가드</span>
-			</button>
-			<button href="#settings" class="nav-item">
-				<span class="ico"><img src="../../images/common/ico_gnb_set_off.png" alt="settings"></span>
-				<span class="txt">설정</span>
-			</button>
-		</nav>
-	</div> -->
 
-
-	<div class="footer_wrap">
+	<!-- <div class="footer_wrap">
 		<div class="bottom-nav-wrapper">
 			<nav class="bottom-nav">
 				<ul class="bottom-nav__list">
@@ -195,7 +156,7 @@
 				</ul>
 			</nav>
 		</div>
-	</div>
+	</div> -->
 	<!-- // footer_wrap -->
 
 

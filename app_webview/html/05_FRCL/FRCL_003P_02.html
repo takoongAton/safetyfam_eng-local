@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>자녀안전지킴이</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	
+	<!-- font -->
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=block" rel="stylesheet" />
+	
+	<!-- css -->
+	<link rel="stylesheet" href="../../css/reset.css" />
+	<link rel="stylesheet" href="../../css/safetyfam_app.css" />
+	<!-- <link rel="stylesheet" href="../../css/Global.css" /> -->
+	<link rel="stylesheet" href="../../css/slick.css" />
+</head>
+<body>
+
+<div class="wrap">
+
+	<div class="header_wrap">
+		<div class="temp">
+			<div class="util">
+				<button type="button"><span><img src="../../images/common/ico_back.png" alt="이전"></span></button>
+				<!-- <button type="button"><span><img src="../../images/common/ico_home.png" alt="홈"></span></button> -->
+			</div>
+			<h1><strong>집</strong></h1>
+			<!-- <div class="tools">
+				<button type="button"><span><img src="../../images/common/ico_noti.png" alt="알림"></span></button>
+			</div> -->
+		</div>
+		<!-- // temp 삭제 -->
+	</div>
+	<!-- // header_wrap -->
+
+	<div class="container_wrap">
+
+		<section class="container">
+
+			<div class="content_wrap full">
+
+				<div class="content">
+					<!-- <div class="map"><img src="../../images/temp/map.png" style="max-width:100%; max-height:100%;"></div> -->
+					<div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.220294116654!2d126.92515522613641!3d37.526304022049054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c996de38f4001%3A0xaa3f6ec54c32c1df!2zKOyjvCnslYTthqQgQVRPTg!5e0!3m2!1sko!2skr!4v1776217053842!5m2!1sko!2skr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+
+					<div class="overlay_panel top">
+						<div class="box inner">
+							<div class="search">
+								<input type="text" placeholder="도로명, 건물명, 지번으로 검색하세요." />
+								<button type="button" class="btn_search"><span class="ico"><img src="../../images/common/ico_search_off.png" alt="검색" /></span></button>
+							</div>
+						</div>
+					</div>
+					<!-- // overlay_panel -->
+
+
+					
+				</div>
+				<!-- // content -->
+
+				<!-- <div class="content_btm">
+					<div class="btm_btn">
+						<div><button type="button" class="btn_next"><span>더보기</span></button></div>
+					</div>
+				</div> -->
+
+			</div><!-- // content_wrap -->
+			
+		</section><!-- // container -->
+
+
+		<div class="layer bottom">
+
+			
+		</div>
+		<!-- // .layer.bottom -->
+		
+		
+	</div><!-- // container_wrap -->
+
+</div><!-- // wrap -->
+
+
+
+<div class="my_safety_zone_layer" style="position:fixed; right:0; bottom:0; left:0; width:100%; max-width:720px; margin:0 auto; background-color: #fff; border-radius:24px 24px 0 0;; box-shadow:0 -3px 6px 0 rgba(0,0,0,0.12);">
+    <div class="inner">
+        <div class="my_safety_zone_setting">
+            <div class="range_wrap">
+                <div class="range">
+                    <input type="range" name="radius_range" id="radius_range" min="0" max="1000" step="100" value="100" />
+                </div>
+                <span class="range_val">500m</span>
+            </div>
+            <div class="address">
+                <span class="ico"><img src="../../images/common/ico_map_new.png" alt=""></span>
+                <span class="txt">서울특별시 영등포구 여의도동</span>
+            </div>
+            <div class="current_address">
+                <input type="text" placeholder="" value="할머니집" />
+                <button type="button" class="btn_search"><span class="ico"><img src="../../images/common/ico_cancel.png" alt="검색" /></span></button>
+            </div>
+        </div>
+        <!-- // my_safety_zone_setting -->
+
+
+        <div class="my_safety_zone_btm">
+        
+         <div class="content_btm">
+            <div class="btm_btn">
+                <div>
+                    <button type="button" class="btn_next"><span>저장</span></button>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../../js/slick.js"></script>
+<script src="../../js/temp.js"></script>
+
+
+
+</body>
+</html>

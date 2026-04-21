@@ -211,9 +211,9 @@ input[type="radio"] {
 button.disabled,
 button.false,
 button[disabled] {
-	background: #a7a7a7 !important;
+	/* background: #a7a7a7 !important;
 	border-color:#a7a7a7 !important;
-	color:#fff !important;
+	color:#fff !important; */
 } 
 
 

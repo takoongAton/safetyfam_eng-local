@@ -42,13 +42,25 @@
 
 				<div class="content">
 
-					<div class="page_tab">
+					<!-- <div class="page_tab">
 						<button type="button" class="active"><span>채팅 가드</span></button>
 						<button type="button"><span>주변 소리 듣기</span></button>
-					</div>
+					</div> -->
 
 					<div class="chat_guard_wrap">
 
+						<div class="box inner" style="margin-bottom:12px;">
+							<div class="noti_card">
+								<span class="ico"><img src="../../images/common/ico_alert_message.png" alt="아이콘"></span>
+								<div>
+									<strong>현재 유해 메시지 수신 여부를 확인할 수 없어요.</strong>
+									<p>자녀의 휴대폰에서 알림 접근 권한을 허용해 주세요.</p>
+								</div>
+							</div>
+							<!-- // noti_card -->
+						</div>
+
+						
 						<div class="list_filter">
 							<div class="list_select_wrap left">
 								<div class="inner">
@@ -130,17 +142,50 @@
 	</div><!-- // container_wrap -->
 
 
-	<!-- <div class="footer_wrap">
-		<div class="btnGroup">
-			<div>
-				<button type="button" class="btn line" disabled=""><span>취소</span></button>
-			</div>
-			<div>
-				<button type="button" class="btn fill"><span>확인</span></button>
-			</div>
+	<div class="footer_wrap">
+		<div class="bottom-nav-wrapper">
+			<nav class="bottom-nav">
+				<ul class="bottom-nav__list">
+					<li class="bottom-nav__item">
+						<a href="#home" class="bottom-nav__link">
+							<span class="bottom-nav__icon">
+								<img src="../../images/common/ico_gnb_home_off.png" alt="홈">
+							</span>
+							<span class="bottom-nav__label">홈</span>
+						</a>
+					</li>
+
+					<li class="bottom-nav__item">
+						<a href="#location" class="bottom-nav__link">
+							<span class="bottom-nav__icon">
+								<img src="../../images/common/ico_gnb_location_off.png" alt="아이 위치">
+							</span>
+							<span class="bottom-nav__label">아이 위치</span>
+						</a>
+					</li>
+
+					<li class="bottom-nav__item">
+						<a href="#guard" class="bottom-nav__link is-active">
+							<span class="bottom-nav__icon">
+								<img src="../../images/common/ico_gnb_chat_on.png" alt="채팅 가드">
+							</span>
+							<span class="bottom-nav__label">채팅 가드</span>
+						</a>
+					</li>
+
+					<li class="bottom-nav__item">
+						<a href="#settings" class="bottom-nav__link">
+							<span class="bottom-nav__icon">
+								<img src="../../images/common/ico_gnb_set_off.png" alt="설정">
+							</span>
+							<span class="bottom-nav__label">설정</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
 		</div>
-	</div> -->
-	<!-- // footer_wrap (하단 고정 영역) -->
+	</div>
+	<!-- // footer_wrap -->
 
 </div><!-- // wrap -->
 
