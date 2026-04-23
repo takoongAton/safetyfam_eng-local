@@ -715,16 +715,30 @@ button.btn_zone:disabled span.txt {color:#9F9F9F;}
 .custom-select_wrap {display:flex; justify-content:space-between; width:100%; gap:0 6px;}
 .custom-select_wrap.right {justify-content:flex-end;}
 .custom-select_wrap > div {width:100%; max-width:50%; line-height:0;}
-.custom-select {display:inline-block; width:100%; max-height:160px; padding:0 12px; background-color:#fff; border-radius:12px; border-color:transparent; color:#000; box-shadow:0 1px 6px rgba(0, 0, 0, 0.16); overflow-y:auto;}
+
+
+/* .custom-select {display:inline-block; width:100%; max-height:160px; padding:0 12px; background-color:#fff; border-radius:12px; border-color:transparent; color:#000; box-shadow:0 1px 6px rgba(0, 0, 0, 0.16); overflow-y:auto;} */
+.custom-select {position:relative; height:40px;}
+.custom-select div.inner {display:inline-block; width:100%; max-height:160px; padding:0 12px; background-color:#fff; border-radius:12px; border-color:transparent; color:#000; box-shadow:0 1px 6px rgba(0, 0, 0, 0.16); overflow-y:auto;}
 .custom-select div.triger {position:sticky; top:0; left:0; height:40px;}
 .custom-select div.triger button.btn_triger {height:40px; padding-right:26px; text-align:left; background:#fff url('../images/common/ico_arrow_down.png') no-repeat right center / 20px 20px;}
 .custom-select div.triger button.btn_triger span {display:block; max-width:110px; font-size:14px; line-height:20px; font-weight:500; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical;}
 .custom-select div.triger button.active {background-image:url('../images/common/ico_arrow_up.png')}
-.custom-select ul {display:none;}
-.custom-select.active ul {display:block;}
-.custom-select ul li {display:flex; align-items:center; max-width:110px; height:40px; font-size:14px; line-height:20px; font-weight:500; cursor:pointer;}
-.custom-select ul li span {display:block; max-width:110px; font-size:14px; line-height:20px; font-weight:500; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical;}
+
+
+.custom-select div.list_box {height:0; opacity:0; margin-top:0; transition:height 0.4s var(--bounce-bezier), opacity 0.4s ease, margin 0.4s var(--bounce-bezier); overflow:hidden;}
+.custom-select div.list_box ul li {display:flex; align-items:center; height:40px; font-size:14px; line-height:20px; font-weight:500; cursor:pointer;}
+.custom-select div.list_box ul li span {display:block; font-size:14px; line-height:20px; font-weight:500; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical;}
+
+.custom-select.active {position:relative; z-index:99;}
+.custom-select.active div.list_box {opacity:1; margin-top:var(--row-gap); overflow:visible;}
+.custom-select.active div.list_box ul {display:block;}
 /* // custom-select */
+:root {
+  --bounce-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+
 
 /* 유해 메시지 */
 .harmful_msg {color:#9F9F9F; font-size:14px; line-height:20px; font-weight:500; text-align:right;}
@@ -926,6 +940,43 @@ input[data-switch]:checked + label:after {right:2px; transform:translate(0,-50%)
 
 
 
+/* 앱 사용 제한 설정 */
+.screen_time_setting {display:flex; flex-direction:column; gap:12px 0; width:100%; margin-top:24px; margin-bottom:-12px;}
+.screen_time_setting .setting_type {display:flex; flex-direction:column; width:100%; border-radius:12px; box-shadow:inset 0 0 0 1px #ccc;}
+.screen_time_setting .setting_type .setting_radio {display:flex; align-items:center; padding:13px 12px;}
+.screen_time_setting .setting_type .setting_radio label {display:flex; align-items:center; gap:0 12px;}
+.screen_time_setting .setting_type .setting_radio label input {position:absolute; top:0; left:0; width:0; height:0; opacity:0;}
+.screen_time_setting .setting_type .setting_radio label input + span.checkmark {display:inline-block; position:relative; width:20px; height:20px; box-shadow:inset 0 0 0 2px #9F9F9F; border-radius:100%;}
+.screen_time_setting .setting_type .setting_radio label input + span.checkmark::before {content:""; display:block; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:12px; height:12px; border-radius:100%;}
+.screen_time_setting .setting_type .setting_radio label input:checked + span.checkmark {}
+.screen_time_setting .setting_type .setting_radio label input:checked + span.checkmark::before {background-color:#FF0F6B;}
+.screen_time_setting .setting_type .setting_radio label span.txt {font-size:16px; font-weight:500;}
+
+.screen_time_setting .setting_type .setting_range {display:flex; flex-direction:column; gap:12px 0; width:100%; padding:12px 12px 12px;}
+.screen_time_setting .setting_type .setting_range > div {display:flex; flex-direction:column; gap:8px 0; width:100%;}
+.screen_time_setting .setting_type .setting_range p {font-size:14px; line-height:20px; font-weight:400;}
+.screen_time_setting .setting_type .setting_range > div > p {}
+.screen_time_setting .setting_type .setting_range > div > p {}
+.screen_time_setting .setting_type .setting_range > div > div.row {display:flex; justify-content:space-between; align-items:center; gap:0 12px; width:100%;}
+.screen_time_setting .setting_type .setting_range > div > div.row > div {width:100%; max-width:100%; flex:1;}
+.screen_time_setting .setting_type .setting_range input {width:100%; height:46px;  background-color:#EFEFEF; border:0 none; border-radius:12px; overflow:hidden; font-size:16px; font-weight:500; text-align:center;}
+.screen_time_setting .setting_type .setting_range input::placeholder {color:#9F9F9F; font-size:inherit; line-height:inherit;}
+/* // 앱 사용 제한 설정 */
+
+
+
+/* 앱 사용 시간 관리 가이드 */
+.screen_time_guide_wrap {display:flex; flex-direction:column; gap:24px 0; width:100%; padding-bottom:36px;}
+.screen_time_guide_wrap .txt_wrap {display:flex; flex-direction:column; gap:12px 0; width:100%; padding:0 18px;}
+.screen_time_guide_wrap .txt_wrap strong.tit {display:block; color:#000; font-size:18px; line-height:30px; font-weight:500;}
+.screen_time_guide_wrap .txt_wrap p.txt {color:#9F9F9F; font-size:14px; line-height:24px; font-weight:400;}
+.screen_time_guide_slide ul.slide li.slide_item {padding:0 18px;}
+.screen_time_guide_slide .slide_dot {display:flex; justify-content:center; gap:8px; margin-top:24px;}
+.screen_time_guide_slide .slide_dot li {font-size:0; line-height:0;;}
+.screen_time_guide_slide .slide_dot li button {width:8px; height:8px; background-color:#C9C9C9; border-radius:8px; font-size:0; transition:width 0.3s ease, background-color 0.3s ease;}
+.screen_time_guide_slide .slide_dot li.slick-active button {width:20px; background-color:#3B3B3B;}
+/* // 앱 사용 시간 관리 가이드 */
+
 
 
 
@@ -963,7 +1014,7 @@ input[data-switch]:checked + label:after {right:2px; transform:translate(0,-50%)
 .dim {position:fixed; top:0; right:0; bottom:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index:10000; backdrop-filter:blur(0.4px);}
 
 /* 기본 팝업 */
-.modal-side {display:block; /* 기본 숨김 */ flex-direction:column; align-items:flex-start; justify-content:flex-start; gap:10px; position:fixed; /* 고정 위치 */ top:50%; left:50%; width:298px; border-radius:24px; background-color:#fff; transform:translate(-50%, -50%); z-index:10001; box-shadow:0 4px 4px rgba(0, 0, 0, 0.05); overflow:hidden;}
+.modal-side {display:block; /* 기본 숨김 */ flex-direction:column; align-items:flex-start; justify-content:flex-start; gap:10px; position:fixed; /* 고정 위치 */ top:50%; left:50%; width:324px; border-radius:24px; background-color:#fff; transform:translate(-50%, -50%); z-index:10001; box-shadow:0 4px 4px rgba(0, 0, 0, 0.05); overflow:hidden;}
 .modal-side.active {display:flex;}
 .modal-side__header {display:flex; flex-direction:column; align-items:center; gap:1.5em 0;}
 /* .modal-side__label {display:block; color:var(--text-label, #666666); font-size:14px; line-height:1.29411em; letter-spacing:-0.026875rem; font-weight:500; word-break:keep-all;} */

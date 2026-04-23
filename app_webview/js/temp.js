@@ -199,14 +199,30 @@ if (isIOS) {
 
 /* custom-select */
 let custom_select = document.querySelectorAll(".custom-select");
+
 if(custom_select) {
     custom_select.forEach(function(item){
-        let btn_triger = item.querySelector("button.btn_triger");
+        let custom_select_item = item;
+        let btn_triger = custom_select_item.querySelector("button.btn_triger");
+        let list_box = custom_select_item.querySelector(".list_box");
+
         btn_triger.addEventListener("click", function(){
-            // btn_triger.closest(".custom-select").classList.toggle("active");
-			item.classList.toggle("active");
-           	// item.querySelector("ul").classList.toggle("active");
+            custom_select_item.classList.toggle("active");
+
+            const isCurrentItemActive = custom_select_item.classList.contains("active");
+            
+            if(!isCurrentItemActive) {
+                // btn_triger.closest(".custom-select").classList.toggle("active");
+                list_box.style.height = `0px`; // 현재 높이를 명시적으로 설정
+                // custom_select_item.classList.add("active");
+            } else {
+                // btn_triger.closest(".custom-select").classList.toggle("active");
+                list_box.style.height = `${list_box.scrollHeight}px`; // 현재 높이를 명시적으로 설정
+                // custom_select_item.classList.remove("active");
+            }
+
 	    })    
     })
 }
+
 /* //custom-select */

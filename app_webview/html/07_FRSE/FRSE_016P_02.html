@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<title>자녀안전지킴이</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+	
+	<!-- font -->
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=block" rel="stylesheet" />
+	
+	<!-- css -->
+	<link rel="stylesheet" href="../../css/reset.css" />
+	<link rel="stylesheet" href="../../css/safetyfam_app.css" />
+	<!-- <link rel="stylesheet" href="../../css/Global.css" /> -->
+	<link rel="stylesheet" href="../../css/slick.css" />
+
+
+
+<style>
+/* 스크린타임 그래프 리포트 */
+.screen_time_report_graph { display:flex; flex-direction:column; gap:0; width:100%; padding:6px 0; background-color:#fff; border-radius:12px; box-shadow:inset 0 0 0 1px #EFEFEF, 0 1px 6px rgba(0, 0, 0, 0.16); overflow:hidden;}
+.screen_time_report_graph div.tit {padding:6px 12px; font-size:16px; line-height:20px; font-weight:700;}
+.screen_time_report_graph .graph_section {width:100%;}
+.screen_time_report_graph .app_list {display:flex; flex-direction:column; gap:0 8px; width:100%;}
+.screen_time_report_graph .app_list li {display:flex; justify-content:space-between; align-items:center; padding:11px 12px;}
+.screen_time_report_graph .app_list li div.app_info {display:flex; align-items:center; gap:0 6px;}
+.screen_time_report_graph .app_list li div.app_info span {display:inline-block;}
+.screen_time_report_graph .app_list li div.app_info span.app_icon {width:24px; height:24px; border-radius:10px; overflow:hidden;}
+.screen_time_report_graph .app_list li div.app_info span.app_name {font-size:14px;;}
+
+.screen_time_report_graph .app_list li div.use_info {display:flex; align-items:center; gap:0 6px;}
+.screen_time_report_graph .app_list li div.use_info span {display:inline-block; width:24px; height:24px;}
+.screen_time_report_graph .app_list li div.use_info div.use_time {display:flex; position:relative; top:0.1em;}
+.screen_time_report_graph .app_list li div.use_info div.use_time strong,
+.screen_time_report_graph .app_list li div.use_info div.use_time span {display:inline-block; font-size:14px; line-height:20px; white-space:nowrap; font-family:'Noto Sans KR';}
+.screen_time_report_graph .app_list li div.use_info div.use_time strong {color:#000; font-weight:700;}
+.screen_time_report_graph .app_list li div.use_info div.use_time span {color:#9F9F9F; font-weight:400;}
+/* // 스크린타임 그래프 리포트 */
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+	<div class="header_wrap">
+		<div class="temp">
+			<div class="util">
+				<button type="button"><span><img src="../../images/common/ico_back.png" alt="이전"></span></button>
+				<!-- <button type="button"><span><img src="../../images/common/ico_home.png" alt="홈"></span></button> -->
+			</div>
+			<h1><strong>앱 사용 시간 관리</strong></h1>
+			<!-- <div class="tools">
+				<button type="button"><span><img src="../../images/common/ico_noti.png" alt="알림"></span></button>
+			</div> -->
+		</div>
+		<!-- // temp 삭제 -->
+	</div>
+	<!-- // header_wrap -->
+
+	<div class="container_wrap">
+
+		<section class="container">
+
+			<div class="content_wrap">
+
+				<div class="content">
+					
+					<div style="display:flex; flex-direction:column; gap:12px 0; width:100%; padding-bottom:2em; ">
+						<div class="box inner">
+							<div class="noti_card">
+								<span class="ico"><img src="../../images/common/ico_alert_unlink.png" alt="연결끊김"></span>
+								<div>
+									<strong>%닉네임%의 앱 사용시간을 확인할 수 없어요.</strong>
+									<p>자녀의 휴대폰에서 스크린타임 권한을 허용해 주세요.</p>
+								</div>
+							</div>
+							<!-- // noti_card -->
+						</div>
+
+						<div class="box inner">
+
+							<div class="custom-select_wrap">
+								<div>
+									<div class="custom-select">
+										<div class="triger">
+											<button type="button" class="btn_triger"><span>나나</span></button>
+										</div>
+										<ul>
+											<li><span>니니</span></li>
+											<li><span>알상무</span></li>
+										</ul>
+									</div>
+									<!-- // custom-select -->
+								 </div>
+
+								<div>
+									<div class="custom-select">
+										<div class="triger">
+											<button type="button" class="btn_triger"><span>오늘</span></button>
+										</div>
+										<ul>
+											<li><span>날짜선택</span></li>
+										</ul>
+									</div>
+									<!-- // custom-select -->
+								 </div>
+							</div>
+						</div>
+						<div class="box inner">
+							오늘 사용 시간 hh시간 mm분
+						</div>
+
+						<div class="box inner">
+							<div class="screen_time_report">
+								<div style="display:flex;">
+									<div>스크린타임 리포트</div>
+									<div class="custom-select">
+										<div class="triger">
+											<button type="button" class="btn_triger"><span>오늘</span></button>
+										</div>
+										<ul>
+											<li><span>날짜선택</span></li>
+										</ul>
+									</div>
+									<!-- // custom-select -->
+								</div>
+
+
+								<div class="screen_time_report_graph">
+									<div class="error">
+										<div class="img"><img src="../../images/common/ico_caution.png" alt="아이콘"></div>
+										<div class="tit">앱 사용 내역이 확인되지 않습니다.<br />
+											앱 사용이 감지되면 그래프로 표시됩니다.</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- // div -->
+
+
+				</div>
+				<!-- // content -->
+
+				<!-- <div class="content_btm">
+					<div class="btm_btn">
+						<div><button type="button" class="btn_next"><span>더보기</span></button></div>
+					</div>
+				</div> -->
+
+			</div><!-- // content_wrap -->
+			
+		</section><!-- // container -->
+		
+	</div><!-- // container_wrap -->
+
+
+	<div class="footer_wrap">
+		<div class="bottom-nav-wrapper">
+			<nav class="bottom-nav">
+				<ul class="bottom-nav__list">
+					<li class="bottom-nav__item">
+						<a href="#home" class="bottom-nav__link">
+							<span class="bottom-nav__icon">
+								<img src="../../images/common/ico_gnb_home_off.png" alt="홈">
+							</span>
+							<span class="bottom-nav__label">홈</span>
+						</a>
+					</li>
+
+					<li class="bottom-nav__item">
+						<a href="#location" class="bottom-nav__link">
+							<span class="bottom-nav__icon">
+								<img src="../../images/common/ico_gnb_location_off.png" alt="아이 위치">
+							</span>
+							<span class="bottom-nav__label">아이 위치</span>
+						</a>
+					</li>
+
+					<li class="bottom-nav__item">
+						<a href="#guard" class="bottom-nav__link">
+							<span class="bottom-nav__icon">
+								<img src="../../images/common/ico_gnb_chat_off.png" alt="채팅 가드">
+							</span>
+							<span class="bottom-nav__label">채팅 가드</span>
+						</a>
+					</li>
+
+					<li class="bottom-nav__item">
+						<a href="#settings" class="bottom-nav__link is-active">
+							<span class="bottom-nav__icon">
+								<img src="../../images/common/ico_gnb_set_on.png" alt="설정">
+							</span>
+							<span class="bottom-nav__label">설정</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<!-- // footer_wrap -->
+
+
+</div><!-- // wrap -->
+
+
+
+
+<div class="dim"></div>
+<div class="modal-side" id="testpop123">
+	<div class="modal-side__content">
+		<div class="modal-side__header">
+			<!-- <span class="modal-side__icon"><img src="../../images/common/ico_caution.png" alt="아이콘"></span> -->
+			<p class="modal-side__title">앱 사용 제한 설정</p>
+			<p class="modal-side__desc">설정한 기간 동안 앱 사용이 제한됩니다.</p>
+		</div>
+		<div class="modal-side__custom">
+
+			<div class="screen_time_setting">
+				<div class="setting_type">
+					<div class="setting_radio">
+						<label><input type="radio" name="screen_time_setting_rdo" id="screen_time_setting_rdo01" /><span class="checkmark"></span><span class="txt">즉시 차단</span></label>
+					</div>
+				</div>
+				<div class="setting_type">
+					<div class="setting_radio">
+						<label><input type="radio" name="screen_time_setting_rdo" id="screen_time_setting_rdo01" /><span class="checkmark"></span><span class="txt">예약 차단</span></label>
+					</div>
+					<div class="setting_range">
+						<div class="set_start">
+							<p>시작 일시</p>
+							<div class="row">
+								<div>
+									<input type="text" placeholder="YYYY.MM.DD">
+								</div>
+								<div>
+									<input type="text" placeholder="HH.MM">
+								</div>
+							</div>
+						</div>
+						<div class="set_end">
+							<p>종료 일시</p>
+							<div class="row">
+								<div>
+									<input type="text" placeholder="YYYY.MM.DD" value="2026.3.17" />
+								</div>
+								<div>
+									<input type="text" placeholder="HH.MM" value="오후 2:36" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<!-- // screen_time_setting -->
+
+		</div>
+	</div>
+	<div class="modal-side__footer">
+		<button type="button" class="btn modal-side__btn-cancel" id="btnExitCancel">
+			<span>취소</span>
+		</button>
+		<button type="button" class="btn modal-side__btn-confirm" id="btnExitConfirm">
+			<span>확인</span>
+		</button>
+	</div>
+</div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../../js/slick.js"></script>
+<script src="../../js/temp.js"></script>
+
+
+
+</body>
+</html>
