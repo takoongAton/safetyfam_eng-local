@@ -201,28 +201,29 @@ if (isIOS) {
 let custom_select = document.querySelectorAll(".custom-select");
 
 if(custom_select) {
-    custom_select.forEach(function(item){
-        let custom_select_item = item;
-        let btn_triger = custom_select_item.querySelector("button.btn_triger");
-        let list_box = custom_select_item.querySelector(".list_box");
-
-        btn_triger.addEventListener("click", function(){
-            custom_select_item.classList.toggle("active");
-
-            const isCurrentItemActive = custom_select_item.classList.contains("active");
-            
-            if(!isCurrentItemActive) {
-                // btn_triger.closest(".custom-select").classList.toggle("active");
-                list_box.style.height = `0px`; // 현재 높이를 명시적으로 설정
-                // custom_select_item.classList.add("active");
+    custom_select.forEach(function(select){
+        let btn_triger = select.querySelector("button.btn_triger");
+        let list_box = select.querySelector(".list_box");
+        btn_triger.addEventListener("click", function(e){
+            e.stopPropagation();
+            select.classList.toggle("active");
+            if(select.classList.contains("active")) {
+                list_box.style.display = "block";
             } else {
-                // btn_triger.closest(".custom-select").classList.toggle("active");
-                list_box.style.height = `${list_box.scrollHeight}px`; // 현재 높이를 명시적으로 설정
-                // custom_select_item.classList.remove("active");
+                list_box.style.display = "none";
             }
+        })
+    });
 
-	    })    
-    })
+    // 바깥 영역 클릭 시 열려있는 select 모두 닫기
+    document.addEventListener("click", function(e){
+        if(e.target.closest(".custom-select")) return; // select 내부 클릭은 무시
+        custom_select.forEach(function(item){
+            if(item.classList.contains("active")) {
+                item.classList.remove("active");
+                item.querySelector(".list_box").style.display = "none";
+            };
+        });
+    });
 }
-
 /* //custom-select */

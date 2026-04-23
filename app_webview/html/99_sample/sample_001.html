@@ -98,6 +98,15 @@
 									<ul>
 										<li><span>니니</span></li>
 										<li><span>알상무</span></li>
+										<li><span>니니</span></li>
+										<li><span>알상무</span></li>
+										<li><span>니니</span></li>
+										<li><span>알상무</span></li>
+										<li><span>니니</span></li>
+										<li><span>알상무</span></li>
+										<li><span>니니</span></li>
+										<li><span>알상무</span></li>
+										
 									</ul>
 								</div>
 							</div>
@@ -1051,73 +1060,6 @@ document.querySelector(".btn_max").addEventListener("click", function(){
 document.querySelector(".layer_triger .btn_triger").addEventListener("click", function(){
 	homeFamLayer("min");
 })
-
-
-/* custom-select : scrollHeight 기반 자연스러운 열기/닫기 */
-/*
-(function(){
-	let selects = document.querySelectorAll(".custom-select");
-
-	function closeSelect(select){
-		let listBox = select.querySelector(".list_box");
-		if(!listBox) return;
-		// auto 상태였을 수 있으므로, 현재 높이를 픽셀로 고정한 뒤 0으로 전환
-		listBox.style.height = listBox.scrollHeight + "px";
-		// 강제 reflow (브라우저가 중간 상태를 적용하도록)
-		listBox.offsetHeight;
-		listBox.style.height = "0px";
-		select.classList.remove("active");
-	}
-
-	function openSelect(select){
-		let listBox = select.querySelector(".list_box");
-		if(!listBox) return;
-		select.classList.add("active");
-		// scrollHeight로 실제 콘텐츠 높이만큼 펼침
-		listBox.style.height = listBox.scrollHeight + "px";
-
-		// 전환 완료 후 height:auto 로 풀어 반응형/동적 콘텐츠 대응
-		listBox.addEventListener("transitionend", function handler(e){
-			if(e.propertyName !== "height") return;
-			if(select.classList.contains("active")){
-				listBox.style.height = "auto";
-			}
-			listBox.removeEventListener("transitionend", handler);
-		});
-	}
-
-	selects.forEach(function(select){
-		let trigerBtn = select.querySelector(".triger .btn_triger");
-		if(!trigerBtn) return;
-
-		trigerBtn.addEventListener("click", function(e){
-			e.stopPropagation();
-			let isActive = select.classList.contains("active");
-
-			// 다른 열린 select는 먼저 닫기
-			selects.forEach(function(other){
-				if(other !== select && other.classList.contains("active")){
-					closeSelect(other);
-				}
-			});
-
-			if(isActive){
-				closeSelect(select);
-			} else {
-				openSelect(select);
-			}
-		});
-	});
-
-	// 바깥 영역 클릭 시 모두 닫기
-	document.addEventListener("click", function(e){
-		if(e.target.closest(".custom-select")) return;
-		selects.forEach(function(select){
-			if(select.classList.contains("active")) closeSelect(select);
-		});
-	});
-})();
-*/
 </script>
 
 </body>

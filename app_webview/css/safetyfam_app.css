@@ -18,6 +18,9 @@
   --color-warring :#ed1e19;
   --color-danger :#ed1e19;
   --color-check : #000;
+
+  --bounce-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* --bounce-bezier:ease-in-out; */
 }
 
 
@@ -723,20 +726,17 @@ button.btn_zone:disabled span.txt {color:#9F9F9F;}
 .custom-select div.triger {position:sticky; top:0; left:0; height:40px;}
 .custom-select div.triger button.btn_triger {height:40px; padding-right:26px; text-align:left; background:#fff url('../images/common/ico_arrow_down.png') no-repeat right center / 20px 20px;}
 .custom-select div.triger button.btn_triger span {display:block; max-width:110px; font-size:14px; line-height:20px; font-weight:500; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical;}
-.custom-select div.triger button.active {background-image:url('../images/common/ico_arrow_up.png')}
 
 
-.custom-select div.list_box {height:0; opacity:0; margin-top:0; transition:height 0.4s var(--bounce-bezier), opacity 0.4s ease, margin 0.4s var(--bounce-bezier); overflow:hidden;}
+.custom-select div.list_box {height:0; opacity:0; margin-top:0; transition:height 0.4s var(--bounce-bezier), opacity 0.4s ease; overflow:hidden;}
 .custom-select div.list_box ul li {display:flex; align-items:center; height:40px; font-size:14px; line-height:20px; font-weight:500; cursor:pointer;}
 .custom-select div.list_box ul li span {display:block; font-size:14px; line-height:20px; font-weight:500; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical;}
 
 .custom-select.active {position:relative; z-index:99;}
-.custom-select.active div.list_box {opacity:1; margin-top:var(--row-gap); overflow:visible;}
+.custom-select.active div.list_box {height:fit-content; opacity:1; margin-top:var(--row-gap); overflow:visible;}
 .custom-select.active div.list_box ul {display:block;}
+.custom-select.active div.triger button.btn_triger {background-image:url('../images/common/ico_arrow_up.png')}
 /* // custom-select */
-:root {
-  --bounce-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
 
 
 
