@@ -23,12 +23,12 @@
 		<div class="temp">
 			<div class="util">
 				<button type="button"><span><img src="../../images/common/ico_back.png" alt="이전"></span></button>
-				<button type="button"><span><img src="../../images/common/ico_home.png" alt="홈"></span></button>
+				<!-- <button type="button"><span><img src="../../images/common/ico_home.png" alt="홈"></span></button> -->
 			</div>
-			<h1><strong>자녀안전지킴이</strong></h1>
-			<div class="tools">
+			<h1><strong>%닉네임% 주변 지역 탐색</strong></h1>
+			<!-- <div class="tools">
 				<button type="button"><span><img src="../../images/common/ico_noti.png" alt="알림"></span></button>
-			</div>
+			</div> -->
 		</div>
 		<!-- // temp 삭제 -->
 	</div>
@@ -46,68 +46,95 @@
 
 					<div class="overlay_panel top">
 						<div class="box inner">
-
-							<div class="custom-select_wrap right">
+							<div class="current_area">
 								<div>
-									<div class="custom-select">
-										<div class="inner">
-											<div class="triger">
-												<button type="button" class="btn_triger"><span>오늘</span></button>
-											</div>
-											<div class="list_box">
-												<ul>
-													<li><span>날짜선택</span></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-									<!-- // custom-select -->
-								 </div>
+									<strong>“여의도동” 주변</strong>
+									<span class="ico"><img src="../../images/common/ico_gps_on.png" alt="GPS위치"></span>
+								</div>
+								<p class="txt">현재 위치 기준 500m 반경 내 안심/ 위험 지역 알림</p>
 							</div>
+							<!-- // current_area -->
+						</div>
+
+						<div class="box inner">
+							<div class="search">
+								<input type="text" placeholder="도로명, 건물명, 지번으로 검색하세요." />
+								<button type="button" class="btn_search"><span class="ico"><img src="../../images/common/ico_search_off.png" alt="검색" /></span></button>
+							</div>
+						</div>
+
+						<div class="box">
+							
+							<div class="zone_list_wrap">
+								<ul class="zone_list">
+									<li class="zone_item">
+										<button type="button" class="btn_zone active">
+											<span class="ico"><img src="../../images/common/ico_btn_all.png" alt="전체 아이콘"></span>
+											<span class="txt">전체</span>
+										</button>
+									</li>
+									<li class="zone_item">
+										<button type="button" class="btn_zone">
+											<span class="ico"><img src="../../images/common/ico_btn_all.png" alt="전체 아이콘"></span>
+											<span class="txt">전체</span>
+										</button>
+									</li>
+									<li class="zone_item">
+										<button type="button" class="btn_zone">
+											<span class="ico"><img src="../../images/common/ico_btn_sex.png" alt="성폭력 아이콘"></span>
+											<span class="txt">성폭력</span>
+										</button>
+									</li>
+									<li class="zone_item">
+										<button type="button" class="btn_zone">
+											<span class="ico"><img src="../../images/common/ico_btn_violence.png" alt="폭력 아이콘"></span>
+											<span class="txt">폭력</span>
+										</button>
+									</li>
+									<li class="zone_item">
+										<button type="button" class="btn_zone">
+											<span class="ico"><img src="../../images/common/ico_btn_robbery.png" alt="강도 아이콘"></span>
+											<span class="txt">강도</span>
+										</button>
+									</li>
+									<li class="zone_item">
+										<button type="button" class="btn_zone">
+											<span class="ico"><img src="../../images/common/ico_btn_theft.png" alt="절도 아이콘"></span>
+											<span class="txt">절도</span>
+										</button>
+									</li>
+								</ul>
+							</div>
+							<!-- // zone_list_wrap -->
 						</div>
 					</div>
 					<!-- // overlay_panel -->
 
 
 					<div class="overlay_panel bottom">
-
 						<div class="box inner">
-							<label>아이 위치 관리</label>
-							<div class="path_wrap">
-								<!-- <div class="path_timetable">
-									<span class="ico"><img src="../../images/home/ico_map_time.png" alt="시게 아이콘"></span>
-									<p class="txt">이동 경로가 없습니다.</p>
-								</div> -->
-								<div class="path_timetable">
-									<span class="ico"><img src="../../images/home/ico_map_time.png" alt="시게 아이콘"></span>
-									<p class="txt">09:01 ~ 11:30</p>
-								</div>
-								<div class="path_points">
-									<ul>
-										<!-- <li>
-											<span class="ico"><img src="../../images/home/ico_dot_danger.png" alt="위험지역 아이콘" /></span>
-											<p class="txt">%지정장소%%지정장소%%지정장소%%지정장소%%지정장소%%지정장소%%지정장소%%지정장소%%지정장소%%지정장소%%지정장소%</p>
-										</li>
-										<li>
-											<span class="ico"><img src="../../images/home/ico_dot_arrive.png" alt="현재위치 아이콘" /></span>
-											<p class="txt">%지정장소%</p>
-										</li> -->
-										<li>
-											<span class="ico"><img src="../../images/home/ico_dot_safe.png" alt="안전지역 아이콘" /></span>
-											<p class="txt">%지정장소%</p>
-										</li>
-										<li>
-											<span class="ico"><img src="../../images/home/ico_dot_arrive.png" alt="도착 아이콘" /></span>
-											<p class="txt">%지정장소%</p>
-										</li>
-									</ul>
-								</div>
+							<div class="safety_tab_wrap">
+								<ul>
+									<li>
+										<button type="button" class="btn_zone">
+											<span class="ico"><img src="../../images/common/ico_map_kidssafe_off.png" alt="어린이 안전 아이콘"></span>
+											<span class="txt">어린이 안전</span>
+										</button>
+									</li>
+									<li>
+										<button type="button" class="btn_zone active">
+											<span class="ico"><img src="../../images/common/ico_map_safezone.png" alt="치안 안전 아이콘"></span>
+											<span class="txt">치안 안전</span>
+										</button>
+									</li>
+								</ul>
 							</div>
-							<!-- // path_wrap -->
 						</div>
+						<!-- // box -->
 					</div>
-					<!-- // overlay_panel -->
-				
+
+
+					
 				</div>
 				<!-- // content -->
 

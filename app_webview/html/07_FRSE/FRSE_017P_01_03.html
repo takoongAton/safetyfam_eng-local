@@ -43,7 +43,7 @@
 
 				<div class="content">
 					
-					<div style="display:flex; flex-direction:column; gap:12px 0; width:100%; padding-bottom:2em; ">
+					<div class="flex_box_list">
 						<div class="box inner">
 							<div class="noti_card">
 								<span class="ico"><img src="../../images/common/ico_alert_unlink.png" alt="연결끊김"></span>
@@ -58,55 +58,24 @@
 						<div class="box inner">
 
 							<div class="custom-select_wrap">
-								<div>
 									<div class="custom-select">
+										<div class="inner">
 										<div class="triger">
 											<button type="button" class="btn_triger"><span>나나</span></button>
 										</div>
+											<div class="list_box">
 										<ul>
 											<li><span>니니</span></li>
 											<li><span>알상무</span></li>
 										</ul>
 									</div>
+										</div>
+									</div>
 									<!-- // custom-select -->
 								</div>
 							</div>
-						</div>
 
 						<div class="box inner">
-
-<style>
-.screen_time_report_ios {display:flex; flex-direction:column; gap:12px 0; width:100%; padding:6px 0 12px; border-radius:12px; box-shadow:inset 0 0 0 1px #EFEFEF, 0 1px 6px rgba(0, 0, 0, 0.16); background-color:#fff;}
-.screen_time_report_ios div.tit {padding:8px 12px; font-size:14px; line-height:20px; font-weight:700;}
-.screen_time_report_ios div.inner {display:flex; flex-direction:column; gap:12px;}
-
-/* 앱 사용 제한 상태 */
-.term_time_wrap {}
-.time_area {display:flex; align-items:center; gap:6px; width:100%; padding:11px 12px;}
-.time_area span.ico {width:24px; min-width:24px; height:24px;}
-.time_area p.txt {font-size:14px; line-height:20px; font-weight:500;}
-.time_area.block p.txt {color:#FF0F6B;}
-.time_area.time p.txt {color:#27AAFF;}
-
-.term_txt_wrap {display:flex; flex-direction:column; gap:4px 0; width:100%; padding:0 12px;}
-.term_txt_wrap li p {position:relative; display:block; padding-left:1.33333em; color:#9F9F9F; font-size:12px; line-height:16px;}
-.term_txt_wrap li p::before {display:block; content:'·'; position:absolute; top:0; left:0; width:1em; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold; text-align:center;}
-/* // 앱 사용 제한 상태 */
-
-.setting_area  {display:flex; justify-content:space-between; align-items:center; gap:0 12px; width:100%; padding:0 12px;}
-.setting_area button {width:100%; height:46px; border-radius:12px;}
-.setting_area button span.txt {display:block; font-size:14px; line-height:1em; font-weight:500;}
-.setting_area button.btn_setting {background-color:#EFEFEF; box-shadow:inset 0 0 0 1px #C9C9C9;;}
-.setting_area button.btn_setting span.txt {color:#000;}
-.setting_area button.btn_unblock {margin-top:12px; background-color:#3B3B3B; box-shadow:unset;}
-.setting_area button.btn_unblock span.txt {color:#fff;}
-
-.guide_txt_wrap {display:flex; align-items:center; gap:0 6px; width:100%; padding:12px; background:#fff url('../../images/common/ico_arrow_s.png') no-repeat right 18px center / 16px 16px; border-radius:12px; box-shadow:inset 0 0 0 1px #EFEFEF, 0 1px 6px rgba(0, 0, 0, 0.16); overflow:hidden;}
-.guide_txt_wrap span.ico {display:inline-block; width:24px; min-width:24px; height:24px;}
-.guide_txt_wrap p.txt {color:#000; font-size:14px; line-height:20px;}
-.small_txt {position:relative; margin:0 12px; padding-left:1.4em; color:#9F9F9F; font-size:10px; line-height:16px;}
-.small_txt::before {display:block; content:'·'; position:absolute; top:0; left:0; width:1em; color:inherit; font-size:inherit; line-height:inherit; font-weight:bold; text-align:center;}
-</style>
 
 							<div class="screen_time_report_ios">
 								<div class="inner">
@@ -119,9 +88,11 @@
 						</div>
 
 						<div class="box inner">
-							<div class="guide_txt_wrap">
+							<div class="shadow_box">
+								<div class="txt_box link">
 								<span class="ico"><img src="../../images/common/ico_guide.png" alt="아이콘"></span>
 								<p class="txt">자녀 앱 사용 제한을 위한 iOS 설정 가이드</p>
+								</div>
 							</div>
 						</div>
 					</div>

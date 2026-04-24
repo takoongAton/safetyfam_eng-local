@@ -16,28 +16,6 @@
 	<link rel="stylesheet" href="../../css/slick.css" />
 
 
-
-<style>
-/* 스크린타임 그래프 리포트 */
-.screen_time_report_graph { display:flex; flex-direction:column; gap:0; width:100%; padding:6px 0; background-color:#fff; border-radius:12px; box-shadow:inset 0 0 0 1px #EFEFEF, 0 1px 6px rgba(0, 0, 0, 0.16); overflow:hidden;}
-.screen_time_report_graph div.tit {padding:6px 12px; font-size:16px; line-height:20px; font-weight:700;}
-.screen_time_report_graph .graph_section {width:100%;}
-.screen_time_report_graph .app_list {display:flex; flex-direction:column; gap:0 8px; width:100%;}
-.screen_time_report_graph .app_list li {display:flex; justify-content:space-between; align-items:center; padding:11px 12px;}
-.screen_time_report_graph .app_list li div.app_info {display:flex; align-items:center; gap:0 6px;}
-.screen_time_report_graph .app_list li div.app_info span {display:inline-block;}
-.screen_time_report_graph .app_list li div.app_info span.app_icon {width:24px; height:24px; border-radius:10px; overflow:hidden;}
-.screen_time_report_graph .app_list li div.app_info span.app_name {font-size:14px;;}
-
-.screen_time_report_graph .app_list li div.use_info {display:flex; align-items:center; gap:0 6px;}
-.screen_time_report_graph .app_list li div.use_info span {display:inline-block; width:24px; height:24px;}
-.screen_time_report_graph .app_list li div.use_info div.use_time {display:flex; position:relative; top:0.1em;}
-.screen_time_report_graph .app_list li div.use_info div.use_time strong,
-.screen_time_report_graph .app_list li div.use_info div.use_time span {display:inline-block; font-size:14px; line-height:20px; white-space:nowrap; font-family:'Noto Sans KR';}
-.screen_time_report_graph .app_list li div.use_info div.use_time strong {color:#000; font-weight:700;}
-.screen_time_report_graph .app_list li div.use_info div.use_time span {color:#9F9F9F; font-weight:400;}
-/* // 스크린타임 그래프 리포트 */
-</style>
 </head>
 <body>
 
@@ -66,7 +44,7 @@
 
 				<div class="content">
 					
-					<div style="display:flex; flex-direction:column; gap:12px 0; width:100%; padding-bottom:2em; ">
+					<div class="flex_box_list">
 						<div class="box inner">
 							<div class="noti_card">
 								<span class="ico"><img src="../../images/common/ico_alert_unlink.png" alt="연결끊김"></span>
@@ -83,51 +61,74 @@
 							<div class="custom-select_wrap">
 								<div>
 									<div class="custom-select">
+										<div class="inner">
 										<div class="triger">
 											<button type="button" class="btn_triger"><span>나나</span></button>
 										</div>
+											<div class="list_box">
 										<ul>
 											<li><span>니니</span></li>
 											<li><span>알상무</span></li>
 										</ul>
+									</div>
+										</div>
 									</div>
 									<!-- // custom-select -->
 								 </div>
 
 								<div>
 									<div class="custom-select">
+										<div class="inner">
 										<div class="triger">
 											<button type="button" class="btn_triger"><span>오늘</span></button>
 										</div>
+											<div class="list_box">
 										<ul>
 											<li><span>날짜선택</span></li>
 										</ul>
+									</div>
+										</div>
 									</div>
 									<!-- // custom-select -->
 								 </div>
 							</div>
 						</div>
+
 						<div class="box inner">
-							오늘 사용 시간 hh시간 mm분
+							<div class="shadow_box">
+								<div class="txt_box">
+									<p class="txt">
+										오늘 사용 시간 <strong>hh</strong>시간 <strong>mm</strong>분
+									</p>
+								</div>
+							</div>
 						</div>
 
 						<div class="box inner">
-							<div class="screen_time_report">
-								<div style="display:flex;">
-									<div>스크린타임 리포트</div>
+							<div>
+								<div class="txt_box">
+									<p class="txt"><strong>스크린타임 리포트</strong></p>
+								</div>
 									<div class="custom-select">
+									<div class="inner">
 										<div class="triger">
-											<button type="button" class="btn_triger"><span>오늘</span></button>
+											<button type="button" class="btn_triger"><span>지난 7일</span></button>
 										</div>
+										<div class="list_box">
 										<ul>
 											<li><span>날짜선택</span></li>
 										</ul>
+										</div>
+									</div>
 									</div>
 									<!-- // custom-select -->
+							</div>
 								</div>
 
+						<div class="box inner">
+							<div class="shadow_box">
 
-								<div class="screen_time_report_graph">
+								<div class="screen_time_report_wrap">
 									<div class="error">
 										<div class="img"><img src="../../images/common/ico_caution.png" alt="아이콘"></div>
 										<div class="tit">앱 사용 내역이 확인되지 않습니다.<br />
@@ -136,10 +137,17 @@
 								</div>
 							</div>
 						</div>
+
+						<div class="box inner">
+							<div class="shadow_box">
+								<div class="txt_box link">
+									<span class="ico"><img src="../../images/common/ico_guide.png" alt="아이콘"></span>
+									<p class="txt">자녀 앱 사용 제한을 위한 iOS 설정 가이드</p>
+								</div>
+							</div>
+						</div>
 					</div>
 					<!-- // div -->
-
-
 				</div>
 				<!-- // content -->
 
@@ -200,6 +208,9 @@
 		</div>
 	</div>
 	<!-- // footer_wrap -->
+
+
+
 
 
 </div><!-- // wrap -->
