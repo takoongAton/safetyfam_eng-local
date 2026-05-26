@@ -450,7 +450,7 @@ div.report_score_wrap div.scroe_gauge span.good {width:2%; background-color:#26A
 /* // home_fam_card */
 
 /* home 주변 소리 듣기 버튼 */
-.home_ambient_sound {display:flex; justify-content:flex-start; align-items:center; gap:0 80px; margin-top:8px; border-radius:12px; padding:6px 12px; background:#27AAFF url('../../images/home/ico_arrow_s.png') no-repeat right 12px center / 16px 16px;; box-shadow:0 1px 6px rgba(0,0,0,0.16);}
+.home_ambient_sound {display:flex; justify-content:flex-start; align-items:center; gap:0 8px; margin-top:8px; border-radius:12px; padding:6px 12px; background:#27AAFF url('../../images/home/ico_arrow_s.png') no-repeat right 12px center / 16px 16px;; box-shadow:0 1px 6px rgba(0,0,0,0.16);}
 .home_ambient_sound span.ico {display:inline-block; width:36px; min-width:36px; height:36px;}
 .home_ambient_sound p.txt {color:#fff; font-size:14px; line-height:20px; font-weight:500;}
 /* // home 주변 소리 듣기 버튼 */
