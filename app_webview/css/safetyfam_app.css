@@ -374,30 +374,42 @@ div.device_state .state_item span.txt {max-width:88px; color:#000; font-size:9px
 /* // device_state */
 
 /* user_state */
-div.user_state {flex:1; text-align:left;}
-div.user_state div.user_info {display:flex; align-items:center; gap:8px;}
+div.user_state {flex:1; display:flex; flex-direction:column; gap:8px 0; text-align:left;}
+div.user_state div.user_info {display:flex; flex-direction:column; gap:8px;}
 div.user_state div.user_info strong.name {display:block; font-size:20px; font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
-div.user_state div.user_info span.ico {display:inline-block; width:66px; min-width:66px; height:20px;}
-div.user_state div.user_info span.ico img {display:inline-block; line-height:1;}
-
+/* div.user_state div.user_info span.ico {display:inline-block; width:66px; min-width:66px; height:20px;}
+div.user_state div.user_info span.ico img {display:inline-block; line-height:1;} */
 div.user_state p.location {color:#9F9F9F; font-size:14px; line-height:20px; font-weight:400;}
 div.user_state p.location strong {color:#27AAFF; font-weight:bold;}
+
+/* 대화 성향 점수 */
+div.user_state div.user_state_tools {flex-wrap:wrap; display:flex; align-items:center; gap:0 4px;}
+div.user_state div.user_state_tools div {display:inline-flex; align-items:center; height:22px; padding:0 8px; border:1px solid #000; border-radius:11px; line-height:1;}
+div.user_state div.user_state_tools div span.txt {display:inline-block; font-size:12px; font-weight:500;}
+div.user_state div.user_state_tools div.call {background-color:#FF0F6B; border-color:transparent;}
+div.user_state div.user_state_tools div.update {background-color:#fff;}
+div.user_state div.user_state_tools div.call span.ico {display:inline-block; width:16px; height:16px; overflow:hidden;}
+div.user_state div.user_state_tools div.call span.ico img {display:block; width:16px; height:16px;object-fit:cover;}
+div.user_state div.user_state_tools div.call span.txt {color:#fff;}
+div.user_state div.user_state_tools div.update span.txt {color:#000;}
+/* // 대화 성향 점수 */
 /* // user_state */
 
 /* metric_wrap */
-div.metric_wrap {display: grid; grid-template-areas:"screen_time message_count" "chat_report chat_report"; gap:8px;}
+div.metric_wrap div.metric_list {display: grid; grid-template-areas:"screen_time message_count" "chat_report chat_report"; gap:8px;}
 div.metric_wrap div.metric_item {display:flex; justify-content:space-between; align-items:center; gap:8px; height:60px; width:100%; padding:0 12px; border-radius:12px; background-color:#fff; box-shadow:0 1px 6px rgba(0,0,0,0.16);}
 div.metric_wrap div.metric_item span.ico {max-width:36px; max-height:36px; height:36px;}
 div.metric_wrap div.metric_item div.thum span.img {display:inline-block; width:36px; height:36px; border-radius:100%; background-color:#f5f5f5; overflow:hidden;}
 div.metric_wrap div.metric_item div.thum span.img img {display:block; width:100%; height:100%;}
 div.metric_wrap div.screen_time {grid-area:screen_time;}
 div.metric_wrap div.message_count {grid-area:message_count;}
-div.metric_wrap div.chat_report {grid-area:chat_report;}
+div.metric_wrap div.chat_report {grid-area:chat_report; position:relative;}
 /* // metric_wrap */
 
 /* report_txt_wrap */
 div.report_txt_wrap {flex:1;}
-div.report_txt_wrap div.phone_tit {text-align:left;}
+div.report_txt_wrap div.phone_tit {display:flex; align-items:center; gap:0 4px; text-align:left;}
+div.report_txt_wrap div.phone_tit strong {display:inline-block; color:#000; font-size:11px; line-height:16px; font-weight:500;}
 div.report_txt_wrap div.phone_tit span.tit {display:block; color:#9F9F9F; font-size:11px; line-height:16px; font-weight:500;}
 div.report_txt_wrap .count_txt_wrap {display:flex; align-items:baseline; gap:2px;}
 div.report_txt_wrap .count_txt_wrap strong.count {display:inline-block; color:#121212; font-size:18px; line-height:26px; font-weight:700;}
@@ -405,15 +417,21 @@ div.report_txt_wrap .count_txt_wrap span.txt {display:inline-block; padding-bott
 /* // report_txt_wrap */
 
 /* 대화 점수 */
-div.report_score_wrap {display:flex; flex-direction:column; justify-content:space-between; width:50%; height:40px; text-align:right;}
-div.report_score_wrap span.tag {display:inline-block; line-height:1;}
+div.report_score_wrap {display:block; /* flex-direction:column; justify-content:space-between; */ position:absolute; top:50%; right:12px; transform: translateY(-50%); width:150px; line-height:0; text-align:right;}
+div.report_score_wrap span.tag {display:inline-block; padding:4px 8px; background-color:#fff; border-radius:11px; font-size:10px; line-height:1; font-weight:bold; border:1px solid #000;}
 div.report_score_wrap span.tag img {display:inline-block; width:34px; height:20px; line-height:1;}
-div.report_score_wrap div.scroe_gauge {width:100%; height:10px; background-color:#F5F5F5; border-radius:10px; overflow:hidden;}
+div.report_score_wrap span.tag.danger_high {border-color:#8E53AD; color:#8E53AD}
+div.report_score_wrap span.tag.danger {border-color:#FF0F6B; color:#FF0F6B}
+div.report_score_wrap span.tag.warning {border-color:#FF8B03; color:#FF8B03}
+div.report_score_wrap span.tag.normal {border-color:#08CC90; color:#08CC90}
+div.report_score_wrap span.tag.good {border-color:#26ABFF; color:#26ABFF}
+div.report_score_wrap div.scroe_gauge {width:100%; height:10px; margin-top:10px; background-color:#F5F5F5; border-radius:10px; overflow:hidden;}
 div.report_score_wrap div.scroe_gauge span {display:block; height:10px; background-color:#FF0F6B; border-radius:10px;}
-div.report_score_wrap div.scroe_gauge span.danger {width:19%; background-color:#FF0F6B;}
-div.report_score_wrap div.scroe_gauge span.warning {width:36.98630%; background-color:#FF8B03;}
-div.report_score_wrap div.scroe_gauge span.normal {width:74%; background-color:#08CC90;}
-div.report_score_wrap div.scroe_gauge span.good {width:95%; background-color:#26ABFF;}
+div.report_score_wrap div.scroe_gauge span.danger_high {width:82%; background-color:#8E53AD;}
+div.report_score_wrap div.scroe_gauge span.danger {width:52%; background-color:#FF0F6B;}
+div.report_score_wrap div.scroe_gauge span.warning {width:42%; background-color:#FF8B03;}
+div.report_score_wrap div.scroe_gauge span.normal {width:22%; background-color:#08CC90;}
+div.report_score_wrap div.scroe_gauge span.good {width:2%; background-color:#26ABFF;}
 /* // 대화 점수 */
 
 
@@ -430,6 +448,12 @@ div.report_score_wrap div.scroe_gauge span.good {width:95%; background-color:#26
 .home_fam_card .card_list .item .inner strong.txt {display:block; color:#121212; font-size:16px; line-height:24px; font-weight:500; text-align:right;}
 .home_fam_card .card_list .item .inner p.txt {display:block; color:#9F9F9F; font-size:14px; line-height:20px; font-weight:400; text-align:right; white-space:normal;}
 /* // home_fam_card */
+
+/* home 주변 소리 듣기 버튼 */
+.home_ambient_sound {display:flex; justify-content:flex-start; align-items:center; gap:0 80px; margin-top:8px; border-radius:12px; padding:6px 12px; background:#27AAFF url('../../images/home/ico_arrow_s.png') no-repeat right 12px center / 16px 16px;; box-shadow:0 1px 6px rgba(0,0,0,0.16);}
+.home_ambient_sound span.ico {display:inline-block; width:36px; min-width:36px; height:36px;}
+.home_ambient_sound p.txt {color:#fff; font-size:14px; line-height:20px; font-weight:500;}
+/* // home 주변 소리 듣기 버튼 */
 
 
 /* home util */
