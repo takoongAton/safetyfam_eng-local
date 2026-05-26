@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="../../css/reset.css" />
 	<link rel="stylesheet" href="../../css/safetyfam_app.css" />
 	<!-- <link rel="stylesheet" href="../../css/Global.css" /> -->
-	<link rel="stylesheet" href="../../css/slick.css" />
+	<!-- <link rel="stylesheet" href="../../css/slick.css" /> -->
 </head>
 <body>
 
@@ -25,7 +25,7 @@
 				<button type="button"><span><img src="../../images/common/ico_back.png" alt="이전"></span></button>
 				<!-- <button type="button"><span><img src="../../images/common/ico_home.png" alt="홈"></span></button> -->
 			</div>
-			<h1><strong>자녀 상세</strong></h1>
+			<h1><strong>주변 소리 듣기</strong></h1>
 			<!-- <div class="tools">
 				<button type="button"><span><img src="../../images/common/ico_noti.png" alt="알림"></span></button>
 			</div> -->
@@ -40,23 +40,18 @@
 
 			<div class="content_wrap divide">
 
-				<div class="content">
-					<div class="my_child_detail">
-						<span class="thum"><img src="../../images/temp/profile_onion.png" alt="프로필 이미지"></span>
-						<div class="txt_wrap">
-							<span class="name">나나</span>
-							<p class="tel">010-****-1234</p>
-						</div>
-					</div>
-					<!-- // my_child_detail -->
-				</div>
-				<!-- // content -->
+				<div class="content_center">
 
-				<div class="content_btm">
-					<div class="btm_btn">
-						<div><button type="button" class="btn_cancel"><span>프로필 수정</span></button></div>
-						<div><button type="button" class="btn_next"><span>자녀 연결 해지</span></button></div>
+					<div class="error">
+						<div class="img"><img src="../../images/common/img_nochildren.png" alt="아이콘"></div>
+						<div class="tit">자녀와 연결되어 있지 않아요.</div>
+						<p class="txt">초대 링크를 보내 자녀를 등록해 보세요.</p>
+						<button type="button" class="btn">
+							<span class="ico"><img src="../../images/common/ico_btn_link.png" alt="새로고침 아이콘"></span>
+							<span class="txt">자녀 연결 관리</span>
+						</button>
 					</div>
+
 				</div>
 
 			</div><!-- // content_wrap -->
@@ -66,7 +61,7 @@
 	</div><!-- // container_wrap -->
 
 
-	<!-- <div class="footer_wrap">
+	<div class="footer_wrap" style="display:none;">
 		<div class="bottom-nav-wrapper">
 			<nav class="bottom-nav">
 				<ul class="bottom-nav__list">
@@ -89,18 +84,18 @@
 					</li>
 
 					<li class="bottom-nav__item">
-						<a href="#guard" class="bottom-nav__link">
+						<a href="#guard" class="bottom-nav__link is-active">
 							<span class="bottom-nav__icon">
-								<img src="../../images/common/ico_gnb_chat_off.png" alt="Monitoring">
+								<img src="../../images/common/ico_gnb_chat_on.png" alt="Monitoring">
 							</span>
-							<span class="bottom-nav__label">Chat Guard</span>
+							<span class="bottom-nav__label">Monitoring</span>
 						</a>
 					</li>
 
 					<li class="bottom-nav__item">
-						<a href="#settings" class="bottom-nav__link is-active">
+						<a href="#settings" class="bottom-nav__link">
 							<span class="bottom-nav__icon">
-								<img src="../../images/common/ico_gnb_set_on.png" alt="설정">
+								<img src="../../images/common/ico_gnb_set_off.png" alt="설정">
 							</span>
 							<span class="bottom-nav__label">Settings</span>
 						</a>
@@ -108,12 +103,8 @@
 				</ul>
 			</nav>
 		</div>
-	</div> -->
+	</div>
 	<!-- // footer_wrap -->
-
-
-
-
 
 </div><!-- // wrap -->
 
@@ -121,11 +112,29 @@
 
 
 
+
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="../../js/slick.js"></script>
+<!-- <script src="../../js/slick.js"></script> -->
 <script src="../../js/temp.js"></script>
 
 
+<script>
+
+/* 공지사항, 자주 묻는 질문 */
+let noticeWrap = document.querySelector(".notice_arcodian_wrap")
+if(noticeWrap) {
+	let listItems = document.querySelectorAll(".list .item");
+	listItems.forEach(function(item){
+		item.addEventListener("click", function(){
+			item.classList.toggle("active");
+		})
+	})
+}
+/* // 공지사항, 자주 묻는 질문 */
+
+</script>
 
 </body>
 </html>

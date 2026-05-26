@@ -77,12 +77,23 @@
 <div class="my_safety_zone_layer">
     <div class="inner">
         <div class="my_safety_zone_setting">
-            <div class="range_wrap">
+            <!-- <div class="range_wrap">
                 <div class="range">
                     <input type="range" name="radius_range" id="radius_range" min="0" max="1000" step="100" value="100" />
                 </div>
                 <span class="range_val">500m</span>
-            </div>
+            </div> -->
+
+			<div class="range_wrap_new">
+				<div class="inner">
+					<div class="range">
+						<span class="slider-track-bg"></span>
+						<span class="slider-track-fill" id="range-track-fill" style="width:10%;"></span>
+						<span class="thumb"></span>
+					</div>
+					<span class="range_val">500m</span>
+				</div>
+			</div>
             <div class="address">
                 <span class="ico"><img src="../../images/common/ico_map_new.png" alt=""></span>
                 <span class="txt">서울특별시 영등포구 여의도동</span>
@@ -118,6 +129,102 @@
 <script src="../../js/slick.js"></script>
 <script src="../../js/temp.js"></script>
 
+
+<script>
+/* range_wrap_new : thumb 드래그로 값 조절 */
+(function(){
+    let wrap      = document.querySelector(".range_wrap_new");
+    if(!wrap) return;
+
+    let rangeArea = wrap.querySelector(".range");
+    let trackFill = wrap.querySelector("#range-track-fill");
+    let thumb     = wrap.querySelector(".thumb");
+    let valLabel  = wrap.querySelector(".range_val");
+
+    let MIN  = 100;
+    let MAX  = 1000;
+    let STEP = 1;
+    let UNIT = "m";
+
+    let isDragging = false;
+
+    // 비율(0~1) → UI 갱신
+    function applyRatio(ratio){
+        ratio = Math.max(0, Math.min(1, ratio));
+
+        // step 단위로 스냅 처리한 값 계산
+        let rawValue   = MIN + (MAX - MIN) * ratio;
+        let steppedVal = Math.round(rawValue / STEP) * STEP;
+        let snapRatio  = (steppedVal - MIN) / (MAX - MIN);
+
+        let rangeWidth = rangeArea.clientWidth;
+        let thumbWidth = thumb.offsetWidth;
+        let thumbLeft  = snapRatio * (rangeWidth - thumbWidth);
+
+        // thumb 위치
+        thumb.style.left = thumbLeft + "px";
+
+        // 트랙 fill 폭 — slider-track의 margin:0 8px(=thumb 반지름) 보정
+        // 실제 트랙 길이는 (rangeWidth - thumbWidth) 이며, thumb 중심까지 채움
+        let fillWidth = snapRatio * (rangeWidth - thumbWidth);
+        trackFill.style.width = fillWidth + "px";
+
+        // 값 라벨 텍스트 + 위치 (thumb 중심에 항상 정렬 — 최소/최대값에서도 클램핑 없음)
+        valLabel.textContent = steppedVal + UNIT;
+        let labelWidth = valLabel.offsetWidth;
+        let labelLeft  = thumbLeft + thumbWidth / 2 - labelWidth / 2;
+        valLabel.style.left = labelLeft + "px";
+    }
+
+    // 포인터 X좌표 → 비율 계산
+    function getRatioFromEvent(e){
+        let rect       = rangeArea.getBoundingClientRect();
+        let thumbWidth = thumb.offsetWidth;
+        let clientX    = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+        let x          = clientX - rect.left - thumbWidth / 2;
+        return x / (rect.width - thumbWidth);
+    }
+
+    function onStart(e){
+        isDragging = true;
+        thumb.style.cursor = "grabbing";
+		thumb.classList.add("active");
+        // 트랙을 직접 클릭한 경우에도 즉시 이동
+        if(e.target !== thumb) applyRatio(getRatioFromEvent(e));
+        e.preventDefault();
+    }
+    function onMove(e){
+        if(!isDragging) return;
+        applyRatio(getRatioFromEvent(e));
+        e.preventDefault();
+    }
+    function onEnd(){
+        isDragging = false;
+        thumb.style.cursor = "grab";
+		thumb.classList.remove("active");
+    }
+
+    // 마우스
+    thumb.addEventListener("mousedown", onStart);
+    rangeArea.addEventListener("mousedown", onStart);
+    document.addEventListener("mousemove", onMove);
+    document.addEventListener("mouseup", onEnd);
+
+    // 터치
+    thumb.addEventListener("touchstart", onStart, {passive:false});
+    rangeArea.addEventListener("touchstart", onStart, {passive:false});
+    document.addEventListener("touchmove", onMove, {passive:false});
+    document.addEventListener("touchend", onEnd);
+
+    // 초기값 (현재 fill width 10% 기준) 적용
+    let initRatio = parseFloat(trackFill.style.width) / 100 || 0;
+    // 레이아웃 안정화 후 한 번 더 보정
+    window.addEventListener("load", function(){ applyRatio(initRatio); });
+    applyRatio(initRatio);
+
+    thumb.style.cursor = "grab";
+})();
+</script>
 
 
 </body>
